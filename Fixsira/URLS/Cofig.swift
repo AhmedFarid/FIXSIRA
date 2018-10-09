@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct URLs {
+    
+    static let main = "http://fixsira.com/site/api/"
+    
+    static let login = main + "login"
+    
+    static let signUp = main + "signupMobile"
+    
+    static let productsList = main + "productsList"
+}

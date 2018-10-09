@@ -8,6 +8,8 @@
 
 import UIKit
 
-class Strings: NSObject {
-
+extension String {
+    var trimmed: String {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
 }
