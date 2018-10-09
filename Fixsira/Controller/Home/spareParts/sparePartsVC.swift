@@ -13,7 +13,9 @@ class sparePartsVC: UIViewController, UICollectionViewDelegate, UICollectionView
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var searchTxt: UITextField!
     
+    var singelItem: SparPartCat?
     var sparparts = [SparParts]()
+    
     
     lazy var refresher: UIRefreshControl = {
        let refresher = UIRefreshControl()
@@ -24,6 +26,8 @@ class sparePartsVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = singelItem?.name
         
         collection.delegate = self
         collection.dataSource = self
@@ -39,7 +43,7 @@ class sparePartsVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.refresher.endRefreshing()
         guard !isLoading else { return }
         isLoading = true
-        API.productsList(srch_term: searchTxt.text ?? "",page: 1) { (error: Error?, sparparts: [SparParts]?, last_page: Int) in
+        API.productsList(cat_id: singelItem?.term_id ?? "", srch_term: searchTxt.text ?? "",page: 1) { (error: Error?, sparparts: [SparParts]?, last_page: Int) in
             self.isLoading = false
             if let sparparts = sparparts {
                 self.sparparts = sparparts
@@ -56,7 +60,7 @@ class sparePartsVC: UIViewController, UICollectionViewDelegate, UICollectionView
         guard !isLoading else {return}
         guard current_page < last_page else {return}
         isLoading = true
-        API.productsList(srch_term: searchTxt.text ?? "", page: current_page+1) { (error: Error?, sparparts: [SparParts]?, last_page: Int) in
+        API.productsList(cat_id: singelItem?.term_id ?? "", srch_term: searchTxt.text ?? "", page: current_page+1) { (error: Error?, sparparts: [SparParts]?, last_page: Int) in
             self.isLoading = false
             if let sparparts = sparparts {
                 self.sparparts.append(contentsOf: sparparts)
@@ -109,7 +113,7 @@ class sparePartsVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     @IBAction func searchBTN(_ sender: Any) {
         guard let email = searchTxt.text, !email.isEmpty else {return}
-        API.productsList(srch_term: searchTxt.text ?? "" ) { (error: Error?, sparparts: [SparParts]?, last_page: Int) in
+        API.productsList(cat_id: singelItem?.term_id ?? "", srch_term: searchTxt.text ?? "" ) { (error: Error?, sparparts: [SparParts]?, last_page: Int) in
             self.isLoading = false
             if let sparparts = sparparts {
                 self.sparparts = sparparts

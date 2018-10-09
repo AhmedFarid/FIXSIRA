@@ -21,6 +21,7 @@ class sparePartsVC2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = singelItem?.title
         stokAvaiTXT.text = singelItem?.stock_availability
         Detiles.text = singelItem?.content
         priceTXT.text = singelItem?.sale_price

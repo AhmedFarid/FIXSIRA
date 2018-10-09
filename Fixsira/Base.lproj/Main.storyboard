@@ -2249,8 +2249,6 @@
                                         <connections>
                                             <outlet property="catNameTxt" destination="QnL-Fz-2eY" id="yEu-k4-Z8b"/>
                                             <outlet property="image" destination="Kd0-dZ-a07" id="m5z-2g-BRn"/>
-                                            <outlet property="prodectImage" destination="Kd0-dZ-a07" id="HRt-Jc-ocx"/>
-                                            <outlet property="prodectName" destination="QnL-Fz-2eY" id="Jc6-jW-7Yb"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

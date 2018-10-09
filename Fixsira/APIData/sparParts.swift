@@ -52,10 +52,37 @@ class SparParts: NSObject {
         self.updated_at = updated_at
         
     }
-    
-    class SparPartCat: NSObject {
-    }
-    
 }
+    class SparPartCat: NSObject {
+        var term_id: String
+        var name: String
+        var slug: String
+        var type: String
+        var parent: String
+        var status: String
+        var created_at: String
+        var updated_at: String
+        var category_description: String
+        var category_img_url: String
+        
+        init?(dict: [String: JSON]){
+        
+        guard let term_id = dict["term_id"]?.string, let name = dict["name"]?.string, let slug = dict["slug"]?.string, let type = dict["type"]?.string, let parent = dict["parent"]?.string, let status = dict["status"]?.string, let created_at = dict["created_at"]?.string, let updated_at = dict["updated_at"]?.string, let category_description = dict["category_description"]?.string, let category_img_url = dict["category_img_url"]?.string else {return nil}
+            
+            
+            self.term_id = term_id
+            self.name = name
+            self.slug = slug
+            self.type = type
+            self.parent = parent
+            self.status = status
+            self.created_at = created_at
+            self.updated_at = updated_at
+            self.category_img_url = category_img_url
+            self.category_description = category_description
+        
+        }
+}
+
 
 
