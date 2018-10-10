@@ -19,4 +19,6 @@ struct URLs {
     static let productsList = main + "productsList"
     
     static let categoryList = main + "categoryList"
+    
+    static let productImages = main + "productImages"
 }

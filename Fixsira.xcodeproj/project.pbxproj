@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		69109963216A8D9C00EEB30B /* sparParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69109962216A8D9C00EEB30B /* sparParts.swift */; };
 		69109965216A926100EEB30B /* API+prodacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69109964216A926100EEB30B /* API+prodacts.swift */; };
+		691E17C6216E021F006836A2 /* galryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691E17C5216E021F006836A2 /* galryCell.swift */; };
 		6927FD69216D140700E24B07 /* sparePartsCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927FD68216D140600E24B07 /* sparePartsCat.swift */; };
 		6927FD6B216D168100E24B07 /* sparPartsCatCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927FD6A216D168100E24B07 /* sparPartsCatCellCollectionViewCell.swift */; };
 		6953343621636A62009E1227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6953343521636A62009E1227 /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 		4ED9A996ABD140B742CBC50D /* Pods-Fixsira.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fixsira.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fixsira/Pods-Fixsira.release.xcconfig"; sourceTree = "<group>"; };
 		69109962216A8D9C00EEB30B /* sparParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sparParts.swift; sourceTree = "<group>"; };
 		69109964216A926100EEB30B /* API+prodacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+prodacts.swift"; sourceTree = "<group>"; };
+		691E17C5216E021F006836A2 /* galryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = galryCell.swift; sourceTree = "<group>"; };
 		6927FD68216D140600E24B07 /* sparePartsCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sparePartsCat.swift; sourceTree = "<group>"; };
 		6927FD6A216D168100E24B07 /* sparPartsCatCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sparPartsCatCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		6953343221636A62009E1227 /* Fixsira.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fixsira.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +284,7 @@
 			children = (
 				69D8F916216B5E0D00A70D63 /* sparPartsCell.swift */,
 				6927FD6A216D168100E24B07 /* sparPartsCatCellCollectionViewCell.swift */,
+				691E17C5216E021F006836A2 /* galryCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				698777A12164F7CD0014EACF /* carWishingVC.swift in Sources */,
 				69D5E7842163B5FC00839584 /* cartVC.swift in Sources */,
 				69D8F917216B5E0D00A70D63 /* sparPartsCell.swift in Sources */,
+				691E17C6216E021F006836A2 /* galryCell.swift in Sources */,
 				69533449216372C0009E1227 /* langVC.swift in Sources */,
 				69109963216A8D9C00EEB30B /* sparParts.swift in Sources */,
 				69ABD0A32163AB6F0041AE0A /* homeVC.swift in Sources */,

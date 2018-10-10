@@ -52,6 +52,42 @@ class API: NSObject {
             }
         }
     }
+        class func productsListGalry(product_id: String, completion: @escaping (_ error: Error?,_ sparParts: [SparPartGalrys]?)-> Void) {
+            let url = URLs.productImages
+            let api_token = "11"
+            let user_token = "1111"
+            let lang = "ar"
+            let parameters: [String: Any] = [
+                "api_token": api_token,
+                "lang": lang,
+                "product_id":product_id,
+                "user_token":user_token
+            ]
+            Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil) .responseJSON  { response in
+                switch response.result
+                {
+                case .failure(let error):
+                    completion(error, nil)
+                    print(error)
+                    
+                case .success(let value):
+                    print(value)
+                    let json = JSON(value)
+                    guard let dataArray = json["data"]["gallery_images"].array else{
+                        completion(nil, nil)
+                        return
+                    }
+                    print("1234\(dataArray)")
+                    var products = [SparPartGalrys]()
+                    for data in dataArray {
+                        if let data = data.dictionary, let prodect = SparPartGalrys.init(dict: data){
+                            products.append(prodect)
+                        }
+                    }
+                    completion(nil, products)
+                }
+            }
+        }
     
     class func productsListCat(page: Int = 1, completion: @escaping (_ error: Error?,_ sparParts: [SparPartCat]?, _ last_page: Int)-> Void) {
         let url = URLs.categoryList

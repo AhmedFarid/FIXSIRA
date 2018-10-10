@@ -15,6 +15,8 @@ class sparePartsVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     var singelItem: SparPartCat?
     var sparparts = [SparParts]()
+    //var singlItemGalry: SparPartGalrys?
+    var sparpartGalrys = [SparPartGalrys]()
     
     
     lazy var refresher: UIRefreshControl = {
@@ -34,10 +36,29 @@ class sparePartsVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         collection.addSubview(refresher)
         handleRefresh()
+        //handleRefreshGalry()
     }
     var isLoading: Bool = false
     var current_page = 1
     var last_page = 1
+    
+    
+//    @objc private func handleRefreshGalry() {
+//        self.refresher.endRefreshing()
+//        guard !isLoading else { return }
+//        isLoading = true
+//        API.productsListGalry(cat_id: singelItem?.term_id ?? "", srch_term: searchTxt.text ?? "",page: 1) { (error: Error?, sparpartGalrys: [SparPartGalrys]?, last_page: Int) in
+//            self.isLoading = false
+//            if let sparpartGalrys = sparpartGalrys {
+//                self.sparpartGalrys = sparpartGalrys
+//                print("123\(self.sparpartGalrys)")
+//                self.collection.reloadData()
+//                self.current_page = 1
+//                self.last_page = last_page
+//            }
+//        }
+//
+//    }
     
      @objc private func handleRefresh() {
         self.refresher.endRefreshing()
@@ -101,12 +122,14 @@ class sparePartsVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "segu", sender: sparparts[indexPath.row])
+        //performSegue(withIdentifier: "segu", sender: sparpartGalrys[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let distantion = segue.destination as? sparePartsVC2{
             if let prodacet = sender as? SparParts {
                 distantion.singelItem = prodacet
+                //distantion.singelIt = sparpartGalrys
             }
         }
     }

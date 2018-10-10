@@ -8,18 +8,26 @@
 
 import UIKit
 
-class sparePartsVC2: UIViewController {
+class sparePartsVC2: UIViewController,UICollectionViewDelegate ,UICollectionViewDataSource {
     
     var singelItem: SparParts?
+    //var singleItemGalry: SparPartGalrys?
+    var sparpartGalrys = [SparPartGalrys]()
     
     @IBOutlet weak var stokAvaiTXT: UILabel!
     @IBOutlet weak var Detiles: UILabel!
     @IBOutlet weak var priceTXT: UILabel!
     @IBOutlet weak var partnameTXT: UILabel!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var collection: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("cx\(sparpartGalrys)")
+        collection.delegate = self
+        collection.dataSource = self
+        
+        handleRefreshGalry()
         
         self.navigationItem.title = singelItem?.title
         stokAvaiTXT.text = singelItem?.stock_availability
@@ -37,4 +45,34 @@ class sparePartsVC2: UIViewController {
             image.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
         }
     }
-}
+    
+    @objc private func handleRefreshGalry(){
+        API.productsListGalry(product_id: singelItem?.id ?? "") {(error: Error?, sparpartGalrys: [SparPartGalrys]?) in
+            if let sparpartGalrys = sparpartGalrys {
+                self.sparpartGalrys = sparpartGalrys
+                print("xxx\(self.sparpartGalrys)")
+                self.collection.reloadData()
+            }
+        }
+    }
+    
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return sparpartGalrys.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? galryCell {
+            let spar = sparpartGalrys[indexPath.row]
+            cell.configuerCell(prodect: spar)
+            return cell
+        }else {
+            return galryCell()
+        }
+        
+    }
+}	

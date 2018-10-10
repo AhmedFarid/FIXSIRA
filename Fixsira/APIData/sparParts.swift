@@ -84,5 +84,20 @@ class SparParts: NSObject {
         }
 }
 
+class SparPartGalrys: NSObject {
+    
+    var id: String
+    var url: String
+    
+    init?(dict: [String: JSON]){
+        
+        guard let id = dict["id"]?.string, let url = dict["url"]?.string else {return nil}
+        
+        self.id = id
+        self.url = url
+        
+    }
+}
+
 
 
