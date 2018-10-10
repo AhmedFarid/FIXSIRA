@@ -1501,8 +1501,8 @@
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pBr-bJ-j7Q">
-                                <rect key="frame" x="0.0" y="204" width="320" height="315"/>
-                                <color key="backgroundColor" red="0.85882352939999995" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="210.5" width="320" height="308.5"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3xA-8X-1yt">
                                     <size key="itemSize" width="145" height="170"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1559,21 +1559,22 @@
                                 </cells>
                             </collectionView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vHY-R5-rPn">
-                                <rect key="frame" x="7" y="172" width="264" height="30"/>
+                                <rect key="frame" x="8" y="179" width="228" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6b-PZ-0cE" customClass="roundedButton" customModule="Fixsira" customModuleProvider="target">
-                                <rect key="frame" x="279" y="173" width="33" height="28"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6b-PZ-0cE" customClass="roundedButton" customModule="Fixsira" customModuleProvider="target">
+                                <rect key="frame" x="244" y="179" width="68" height="30"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.50196078430000002" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="9Bl-Lh-WD3"/>
-                                    <constraint firstAttribute="height" constant="28" id="KQB-jp-Eme"/>
+                                    <constraint firstAttribute="height" constant="30" id="8Ix-vr-WyD"/>
+                                    <constraint firstAttribute="width" constant="68" id="cT1-yy-tia"/>
                                 </constraints>
-                                <state key="normal" image="search"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Search"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="2"/>
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -1581,22 +1582,21 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="yxm-iK-Wco" firstAttribute="trailing" secondItem="LOF-pO-wsv" secondAttribute="trailing" id="1vH-Zq-GXW"/>
-                            <constraint firstItem="vHY-R5-rPn" firstAttribute="top" secondItem="yxm-iK-Wco" secondAttribute="bottom" constant="1.5" id="1wV-wq-fOb"/>
                             <constraint firstItem="yxm-iK-Wco" firstAttribute="top" secondItem="LOF-pO-wsv" secondAttribute="top" id="2qe-z3-bSL"/>
                             <constraint firstItem="yxm-iK-Wco" firstAttribute="width" secondItem="yxm-iK-Wco" secondAttribute="height" multiplier="3:1" id="7Yi-Re-6Ag"/>
+                            <constraint firstItem="LOF-pO-wsv" firstAttribute="trailing" secondItem="U6b-PZ-0cE" secondAttribute="trailing" constant="8" id="AVV-bc-REh"/>
                             <constraint firstItem="pBr-bJ-j7Q" firstAttribute="trailing" secondItem="LOF-pO-wsv" secondAttribute="trailing" id="GCZ-lP-1kM"/>
                             <constraint firstItem="yxm-iK-Wco" firstAttribute="leading" secondItem="LOF-pO-wsv" secondAttribute="leading" id="JNz-Vb-QDz"/>
-                            <constraint firstItem="vHY-R5-rPn" firstAttribute="leading" secondItem="LOF-pO-wsv" secondAttribute="leading" constant="7" id="Mof-g8-I6V"/>
-                            <constraint firstItem="pBr-bJ-j7Q" firstAttribute="top" secondItem="vHY-R5-rPn" secondAttribute="bottom" constant="2" id="OaS-ZL-HrR"/>
+                            <constraint firstItem="vHY-R5-rPn" firstAttribute="top" secondItem="yxm-iK-Wco" secondAttribute="bottom" constant="8.5" id="K11-6m-Moy"/>
+                            <constraint firstItem="U6b-PZ-0cE" firstAttribute="leading" secondItem="vHY-R5-rPn" secondAttribute="trailing" constant="8" id="VEm-S2-RaO"/>
                             <constraint firstItem="LOF-pO-wsv" firstAttribute="bottom" secondItem="pBr-bJ-j7Q" secondAttribute="bottom" id="YJu-FL-paA"/>
-                            <constraint firstItem="U6b-PZ-0cE" firstAttribute="centerY" secondItem="vHY-R5-rPn" secondAttribute="centerY" id="e0a-fo-z43"/>
-                            <constraint firstItem="LOF-pO-wsv" firstAttribute="trailing" secondItem="U6b-PZ-0cE" secondAttribute="trailing" constant="8" id="guq-DG-f0c"/>
-                            <constraint firstItem="U6b-PZ-0cE" firstAttribute="leading" secondItem="vHY-R5-rPn" secondAttribute="trailing" constant="8" id="kFK-sw-cJd"/>
+                            <constraint firstItem="pBr-bJ-j7Q" firstAttribute="top" secondItem="vHY-R5-rPn" secondAttribute="bottom" constant="1.5" id="ZGb-8P-euO"/>
+                            <constraint firstItem="vHY-R5-rPn" firstAttribute="leading" secondItem="LOF-pO-wsv" secondAttribute="leading" constant="8" id="rqC-e7-MgJ"/>
                             <constraint firstItem="pBr-bJ-j7Q" firstAttribute="leading" secondItem="LOF-pO-wsv" secondAttribute="leading" id="wyD-9y-EcZ"/>
-                            <constraint firstItem="pBr-bJ-j7Q" firstAttribute="top" secondItem="vHY-R5-rPn" secondAttribute="bottom" constant="2" id="zh5-M1-4VR"/>
+                            <constraint firstItem="U6b-PZ-0cE" firstAttribute="top" secondItem="yxm-iK-Wco" secondAttribute="bottom" constant="8.5" id="ym1-db-JCZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LOF-pO-wsv"/>
                     </view>
@@ -2329,7 +2329,6 @@
         <image name="man-user" width="30" height="27"/>
         <image name="placeholder" width="1280" height="960"/>
         <image name="profile" width="180" height="180"/>
-        <image name="search" width="1600" height="1600"/>
         <image name="services" width="49" height="49"/>
         <image name="settings-work-tool" width="30" height="30"/>
         <image name="shopping-cart" width="30" height="30"/>
