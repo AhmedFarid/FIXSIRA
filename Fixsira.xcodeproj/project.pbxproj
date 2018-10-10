@@ -94,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6915AD53216E666F0037B532 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				69E43985216A2FCE0054AD56 /* Model */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6953342921636A62009E1227 = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +129,7 @@
 				6953344121636A6F009E1227 /* Info.plist */,
 				6953343C21636A6F009E1227 /* Assets.xcassets */,
 				69DF257C216A36B10031CA29 /* Extension */,
-				69E43985216A2FCE0054AD56 /* Model */,
+				6915AD53216E666F0037B532 /* Model */,
 				69E43984216A2F7F0054AD56 /* APIData */,
 				69E43983216A2F590054AD56 /* URLS */,
 				69E43982216A2F0A0054AD56 /* API */,
@@ -287,6 +295,7 @@
 				691E17C5216E021F006836A2 /* galryCell.swift */,
 			);
 			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		8C360DF5772D6FFF55F77B2E /* Pods */ = {
