@@ -8,23 +8,50 @@
 
 import UIKit
 
-class carWishingVC: UIViewController {
+class carWishingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tabelView: UITableView!
+    
+    var services = [Services]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tabelView.delegate = self
+        tabelView.dataSource = self
+        
+        handleRefresh()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @objc private func handleRefresh() {
+        API_Services.servicesData(type: "car_washing"){ (error: Error?, services: [Services]?) in
+            if let services = services {
+                self.services = services
+                print("xxx\(self.services)")
+                self.tabelView.reloadData()
+            }
+        }
+        
     }
-    */
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return services.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tabelView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? carWishingCell {
+            let cells = services[indexPath.row]
+            cell.configuerCell(prodect: cells)
+            return cell
+        }else {
+            return carWishingCell()
+        }
+        
+    }
 
 }
