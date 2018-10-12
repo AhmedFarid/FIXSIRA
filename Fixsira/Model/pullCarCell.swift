@@ -1,5 +1,5 @@
 //
-//  carMaintCell.swift
+//  pullCarCell.swift
 //  Fixsira
 //
 //  Created by FARIDO on 10/12/18.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class carMaintCell: UITableViewCell {
-
+class pullCarCell: UITableViewCell {
+    
     @IBOutlet weak var wishImage: UIImageView!
     @IBOutlet weak var vrndorName: UILabel!
     @IBOutlet weak var name: UILabel!

@@ -10,13 +10,27 @@ import UIKit
 
 class pullcarVc: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var tabelview: UITableView!
+    @IBOutlet weak var tabelView: UITableView!
+    var services = [Services]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabelview.delegate = self
-        tabelview.dataSource = self
-
+        tabelView.delegate = self
+        tabelView.dataSource = self
+        
+        handleRefresh()
+    }
+    
+    
+    @objc private func handleRefresh() {
+        API_Services.servicesData(type: "car_washing"){ (error: Error?, services: [Services]?) in
+            if let services = services {
+                self.services = services
+                print("xxx\(self.services)")
+                self.tabelView.reloadData()
+            }
+        }
         
     }
     
@@ -26,12 +40,20 @@ class pullcarVc: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return services.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = tabelview.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-        return cell
+        if let cell = tabelView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? pullCarCell {
+            let cells = services[indexPath.row]
+            cell.configuerCell(prodect: cells)
+            return cell
+        }else {
+            return pullCarCell()
+        }
+        
     }
-
+    
 }
+
+
