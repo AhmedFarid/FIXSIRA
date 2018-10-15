@@ -24,7 +24,7 @@ class pullcarVc: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     @objc private func handleRefresh() {
-        API_Services.servicesData(type: "car_washing"){ (error: Error?, services: [Services]?) in
+        API_Services.servicesData(type: "pull_washing"){ (error: Error?, services: [Services]?) in
             if let services = services {
                 self.services = services
                 print("xxx\(self.services)")
@@ -53,7 +53,18 @@ class pullcarVc: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
         
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "suge", sender: services[indexPath.row])
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let distantion = segue.destination as? pullCarVC2{
+            if let prodacet = sender as? Services {
+                distantion.singelItem = prodacet
+            }
+        }
+    }
 }
+
 
 

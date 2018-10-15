@@ -75,4 +75,16 @@ class sparePartsVC2: UIViewController,UICollectionViewDelegate ,UICollectionView
         }
         
     }
-}	
+    
+    @IBAction func addToCart(_ sender: Any) {
+        API_Cart.addToCart(products_id: singelItem?.id ?? "") { (error: Error?, success: Bool) in
+            if success {
+                self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order")
+            }else{
+                self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
+            }
+            self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
+        }
+        self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
+    }
+}

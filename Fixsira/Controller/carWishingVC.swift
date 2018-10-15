@@ -53,5 +53,17 @@ class carWishingVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         
     }
-
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "suge", sender: services[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let distantion = segue.destination as? carWishingVC2{
+            if let prodacet = sender as? Services {
+                distantion.singelItem = prodacet
+            }
+        }
+    }
 }

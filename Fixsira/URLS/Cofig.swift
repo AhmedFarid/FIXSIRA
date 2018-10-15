@@ -23,4 +23,14 @@ struct URLs {
     static let productImages = main + "productImages"
     
     static let locationList = main + "locationList"
+    
+    static let getServices = main + "getServices"
+    
+    static let addToCart = main + "addToCart"
+    
+    static let showCart = main + "showCart"
+    
+    static let deleteFromCart = main + "deleteFromCart"
+    
+    static let orderServices = main + "orderServices"
 }
