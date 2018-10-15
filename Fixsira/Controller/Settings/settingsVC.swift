@@ -8,23 +8,49 @@
 
 import UIKit
 
-class settingsVC: UIViewController {
+class settingsVC: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 
+    
+    
+    
+    var orders = [myorders]()
+    
+    @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tableview.delegate = self
+        tableview.dataSource = self
+        
+        handleRefresh()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc private func handleRefresh() {
+        API_Myorders.myOrders{ (error: Error?, orders: [myorders]?) in
+            if let orders = orders {
+                self.orders = orders
+                print("xxx\(self.orders)")
+                self.tableview.reloadData()
+            }
+        }
     }
-    */
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return orders.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableview.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? myordersCell {
+        let cells = orders[indexPath.row]
+        cell.configuerCell(prodect: cells)
+        return cell
+        }else {
+         return myordersCell()
+        }
+    }
 }

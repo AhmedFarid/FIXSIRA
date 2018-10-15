@@ -86,7 +86,7 @@ class orderServices: UIViewController , CLLocationManagerDelegate{
     
     @objc func dateChanged(datePiker: UIDatePicker) {
         let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
         date.text = dateFormater.string(from: datePiker.date)
         view.endEditing(true)
     }

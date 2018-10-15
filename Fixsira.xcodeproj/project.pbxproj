@@ -52,6 +52,9 @@
 		69D6292D216F9E580075C81B /* API+Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D6292C216F9E580075C81B /* API+Services.swift */; };
 		69D89FE42174AEF90042586A /* API+orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D89FE32174AEF80042586A /* API+orders.swift */; };
 		69D89FE62174EBB70042586A /* API+profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D89FE52174EBB70042586A /* API+profile.swift */; };
+		69D89FE8217507CB0042586A /* myorders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D89FE7217507CB0042586A /* myorders.swift */; };
+		69D89FEA217511E90042586A /* API+Myorders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D89FE9217511E90042586A /* API+Myorders.swift */; };
+		69D89FEC217516F40042586A /* myordersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D89FEB217516F40042586A /* myordersCell.swift */; };
 		69D8F917216B5E0D00A70D63 /* sparPartsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8F916216B5E0D00A70D63 /* sparPartsCell.swift */; };
 		69DF257E216A37480031CA29 /* showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DF257D216A37470031CA29 /* showAlert.swift */; };
 		69DF2580216A476B0031CA29 /* API+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DF257F216A476A0031CA29 /* API+Login.swift */; };
@@ -111,6 +114,9 @@
 		69D6292C216F9E580075C81B /* API+Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Services.swift"; sourceTree = "<group>"; };
 		69D89FE32174AEF80042586A /* API+orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+orders.swift"; sourceTree = "<group>"; };
 		69D89FE52174EBB70042586A /* API+profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+profile.swift"; sourceTree = "<group>"; };
+		69D89FE7217507CB0042586A /* myorders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myorders.swift; sourceTree = "<group>"; };
+		69D89FE9217511E90042586A /* API+Myorders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Myorders.swift"; sourceTree = "<group>"; };
+		69D89FEB217516F40042586A /* myordersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myordersCell.swift; sourceTree = "<group>"; };
 		69D8F916216B5E0D00A70D63 /* sparPartsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sparPartsCell.swift; sourceTree = "<group>"; };
 		69DF257D216A37470031CA29 /* showAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showAlert.swift; sourceTree = "<group>"; };
 		69DF257F216A476A0031CA29 /* API+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Login.swift"; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 				69E43985216A2FCE0054AD56 /* sparParts */,
 				697064C42172BE0E00A59151 /* carMaint */,
 				696A362C21734F68002C7C0E /* pullCar */,
+				69D89FEB217516F40042586A /* myordersCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,6 +360,7 @@
 				696A362F21735CD4002C7C0E /* API+Cart.swift */,
 				69D89FE32174AEF80042586A /* API+orders.swift */,
 				69D89FE52174EBB70042586A /* API+profile.swift */,
+				69D89FE9217511E90042586A /* API+Myorders.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -372,6 +380,7 @@
 				69D6292A216F9AD70075C81B /* Services.swift */,
 				697335022172AF4700A4B2DF /* servicesDetails.swift */,
 				696A363421738055002C7C0E /* cartData.swift */,
+				69D89FE7217507CB0042586A /* myorders.swift */,
 			);
 			path = APIData;
 			sourceTree = "<group>";
@@ -555,14 +564,17 @@
 				6953344C2163743A009E1227 /* roundedButton.swift in Sources */,
 				69D6292D216F9E580075C81B /* API+Services.swift in Sources */,
 				6996BE2E2170BC0900D8A4EA /* carMaintCell.swift in Sources */,
+				69D89FEA217511E90042586A /* API+Myorders.swift in Sources */,
 				698777A92164FA340014EACF /* sparePartsVC2.swift in Sources */,
 				696A363B2173C697002C7C0E /* carWishingVC3.swift in Sources */,
 				69DF2586216A5A6C0031CA29 /* helper.swift in Sources */,
+				69D89FE8217507CB0042586A /* myorders.swift in Sources */,
 				69D5E7892163DA2700839584 /* pullcarVc.swift in Sources */,
 				6953344E21638A0A009E1227 /* palceHolderColor.swift in Sources */,
 				69109965216A926100EEB30B /* API+prodacts.swift in Sources */,
 				699ACB9D2170CE0200B300EB /* pullCarCell.swift in Sources */,
 				6987779F2164F5190014EACF /* carMaintVC2.swift in Sources */,
+				69D89FEC217516F40042586A /* myordersCell.swift in Sources */,
 				69D5E7862163B6AE00839584 /* settingsVC.swift in Sources */,
 				69DF2584216A549F0031CA29 /* Cofig.swift in Sources */,
 				698777A72164F9BD0014EACF /* sparePartsVC.swift in Sources */,

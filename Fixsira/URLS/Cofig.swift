@@ -33,4 +33,8 @@ struct URLs {
     static let deleteFromCart = main + "deleteFromCart"
     
     static let orderServices = main + "orderServices"
+    
+    static let profile = main + "profile"
+    
+    static let myOrderServices = main + "myOrderServices"
 }
