@@ -37,4 +37,6 @@ struct URLs {
     static let profile = main + "profile"
     
     static let myOrderServices = main + "myOrderServices"
+    
+    static let reviewVendor = main + "reviewVendor"
 }

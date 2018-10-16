@@ -17,6 +17,10 @@ class profileVC: UIViewController {
         handleRefresh()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        handleRefresh()
+    }
     @objc private func handleRefresh() {
         API_profile.profile { (error: Error?, success, name,email) in
             self.name.text = name ?? ""

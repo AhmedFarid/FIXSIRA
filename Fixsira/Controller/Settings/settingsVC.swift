@@ -53,4 +53,16 @@ class settingsVC: UIViewController ,UITableViewDelegate, UITableViewDataSource{
          return myordersCell()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "suge", sender: orders[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let distantion = segue.destination as? reviewService {
+            if let prodact = sender as? myorders {
+                distantion.singleItem = prodact
+            }
+        }
+    }
 }

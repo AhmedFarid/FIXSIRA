@@ -56,6 +56,8 @@
 		69D89FEA217511E90042586A /* API+Myorders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D89FE9217511E90042586A /* API+Myorders.swift */; };
 		69D89FEC217516F40042586A /* myordersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D89FEB217516F40042586A /* myordersCell.swift */; };
 		69D8F917216B5E0D00A70D63 /* sparPartsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8F916216B5E0D00A70D63 /* sparPartsCell.swift */; };
+		69DA8CE02176017400074F80 /* reviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA8CDF2176017400074F80 /* reviewService.swift */; };
+		69DA8CE221760B3F00074F80 /* API+review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA8CE121760B3F00074F80 /* API+review.swift */; };
 		69DF257E216A37480031CA29 /* showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DF257D216A37470031CA29 /* showAlert.swift */; };
 		69DF2580216A476B0031CA29 /* API+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DF257F216A476A0031CA29 /* API+Login.swift */; };
 		69DF2582216A4B1A0031CA29 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DF2581216A4B1A0031CA29 /* Strings.swift */; };
@@ -118,6 +120,8 @@
 		69D89FE9217511E90042586A /* API+Myorders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Myorders.swift"; sourceTree = "<group>"; };
 		69D89FEB217516F40042586A /* myordersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myordersCell.swift; sourceTree = "<group>"; };
 		69D8F916216B5E0D00A70D63 /* sparPartsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sparPartsCell.swift; sourceTree = "<group>"; };
+		69DA8CDF2176017400074F80 /* reviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reviewService.swift; sourceTree = "<group>"; };
+		69DA8CE121760B3F00074F80 /* API+review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+review.swift"; sourceTree = "<group>"; };
 		69DF257D216A37470031CA29 /* showAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showAlert.swift; sourceTree = "<group>"; };
 		69DF257F216A476A0031CA29 /* API+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Login.swift"; sourceTree = "<group>"; };
 		69DF2581216A4B1A0031CA29 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -326,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				69D5E7852163B6AE00839584 /* settingsVC.swift */,
+				69DA8CDF2176017400074F80 /* reviewService.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				69D89FE32174AEF80042586A /* API+orders.swift */,
 				69D89FE52174EBB70042586A /* API+profile.swift */,
 				69D89FE9217511E90042586A /* API+Myorders.swift */,
+				69DA8CE121760B3F00074F80 /* API+review.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -530,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				696A362B21734B62002C7C0E /* carMintDetCell.swift in Sources */,
+				69DA8CE02176017400074F80 /* reviewService.swift in Sources */,
 				698777A12164F7CD0014EACF /* carWishingVC.swift in Sources */,
 				69D89FE62174EBB70042586A /* API+profile.swift in Sources */,
 				69D5E7842163B5FC00839584 /* cartVC.swift in Sources */,
@@ -540,6 +547,7 @@
 				69109963216A8D9C00EEB30B /* sparParts.swift in Sources */,
 				69ABD0A32163AB6F0041AE0A /* homeVC.swift in Sources */,
 				697064C12172B80600A59151 /* API+ServicesDetails.swift in Sources */,
+				69DA8CE221760B3F00074F80 /* API+review.swift in Sources */,
 				6927FD6B216D168100E24B07 /* sparPartsCatCellCollectionViewCell.swift in Sources */,
 				69DF2580216A476B0031CA29 /* API+Login.swift in Sources */,
 				6953345021638EC5009E1227 /* loginVC.swift in Sources */,
