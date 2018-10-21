@@ -22,9 +22,8 @@ class carMaintVC2: UIViewController, UITableViewDataSource, UITableViewDelegate 
         tableview.delegate = self
         tableview.dataSource = self
         
-        handleRefresh()
+         handleRefresh()
     }
-    
     @objc private func handleRefresh() {
         API_ServicesDetails.servicesDataDetails(type: "car_maintenance", vendor_id: singelItem?.id ?? 1){ (error: Error?, serviceDeatils: [servicesDetails]?) in
             if let serviceDeatils = serviceDeatils {
@@ -35,7 +34,7 @@ class carMaintVC2: UIViewController, UITableViewDataSource, UITableViewDelegate 
         }
         
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -43,6 +42,7 @@ class carMaintVC2: UIViewController, UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return serviceDeatils.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableview.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? carMintDetCell {

@@ -93,5 +93,13 @@ class cartVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-
+    
+    @IBAction func buyBtn(_ sender: Any) {
+        if price == 0 {
+            self.showAlert(title: "Faild", message: "Cart Is Empty")
+        }else {
+            performSegue(withIdentifier: "suge", sender: nil)
+        }
+    }
+    
 }

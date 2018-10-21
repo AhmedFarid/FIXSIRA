@@ -1,22 +1,26 @@
 //
-//  reviewService.swift
+//  reviewVendorProdectVC.swift
 //  Fixsira
 //
-//  Created by FARIDO on 10/16/18.
+//  Created by FARIDO on 10/19/18.
 //  Copyright © 2018 E-Bakers. All rights reserved.
 //
 
 import UIKit
 
-class reviewService: UIViewController {
+class reviewVendorProdectVC: UIViewController {
 
-    var singleItem: myorders?
+    var ids = 0
+    var orderDate = ""
+    var orderCurrency = ""
+    var orderTotla = ""
+    var status = ""
     
-    @IBOutlet weak var carName: UILabel!
-    @IBOutlet weak var servicesType: UILabel!
-    @IBOutlet weak var data: UILabel!
-    @IBOutlet weak var prices: UILabel!
-    @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var id: UILabel!
+    @IBOutlet weak var _order_date: UILabel!
+    @IBOutlet weak var _order_currency: UILabel!
+    @IBOutlet weak var _order_total: UILabel!
+    @IBOutlet weak var _order_status: UILabel!
     
     @IBOutlet weak var commentTXT: UITextView!
     
@@ -32,11 +36,13 @@ class reviewService: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        carName.text = singleItem?.car_name
-        servicesType.text = singleItem?.name
-        data.text = singleItem?.schedule_date
-        prices.text = singleItem?.price
-        status.text = singleItem?.status
+        id.text = "\(ids))"
+        _order_date.text = orderDate
+        _order_currency.text = orderCurrency
+        _order_total.text = orderTotla
+        _order_status.text = status
+        
+        print("\(orderCurrency)")
     }
     
     
@@ -93,14 +99,13 @@ class reviewService: UIViewController {
             return
         }
         
-        API_review.review(id: singleItem?.vendor_id ?? "", comment: commentTXT.text ?? "ss", rating: reate ) { (error: Error?, success) in
+        API_review.review(id: "\(ids)" , comment: commentTXT.text ?? "ss", rating: reate ) { (error: Error?, success) in
             if success {
-                
+
             }else{
-                
+
             }
             self.showAlert(title: "Thanks For Review", message: "Thanks For Make Our App Batter")
         }
     }
-    
 }

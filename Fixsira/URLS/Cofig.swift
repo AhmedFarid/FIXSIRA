@@ -39,4 +39,16 @@ struct URLs {
     static let myOrderServices = main + "myOrderServices"
     
     static let reviewVendor = main + "reviewVendor"
+    
+    static let orderShop = main + "orderShop"
+    
+    static let myOrderShop = main + "myOrderShop"
+    
+    static let getDetelisOrderShop = main + "getDetelisOrderShop"
+    
+    static let carModelList = main + "carModelList"
+    
+    static let servicesType = main + "servicesType"
+    
+    static let getVendorProfile = main + "getVendorProfile"
 }

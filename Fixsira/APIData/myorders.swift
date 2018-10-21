@@ -69,3 +69,50 @@ class myorders: NSObject {
         self.date_added = date_added
     }
 }
+
+class myordersProdect: NSObject {
+    
+    var id: Int
+    var _order_date: String
+    var _order_currency: String
+    var _order_total: String
+    var _final_order_total: String
+    var _order_status: String
+    
+    init?(dict: [String: JSON]){
+        
+        guard let id = dict["id"]?.int, let _order_date = dict["_order_date"]?.string,let _order_currency = dict["_order_currency"]?.string, let _order_total = dict["_order_total"]?.string, let _final_order_total = dict["_final_order_total"]?.string,let _order_status = dict["_order_status"]?.string else {return nil}
+        
+        self.id = id
+        self._order_date = _order_date
+        self._order_currency = _order_currency
+        self._order_total = _order_total
+        self._final_order_total = _final_order_total
+        self._order_status = _order_status
+    }
+}
+
+class myordersProdectDetels: NSObject {
+    
+    var id: Int
+    var products_id: String
+    var name: String
+    var quantity: String
+    var price: String
+    var order_price: String
+    var img_src: String
+    
+    init?(dict: [String: JSON]){
+        
+        guard let id = dict["id"]?.int, let products_id = dict["products_id"]?.string,let name = dict["name"]?.string, let quantity = dict["quantity"]?.string, let price = dict["price"]?.string,let order_price = dict["order_price"]?.string, let img_src = dict["img_src"]?.string else {return nil}
+        
+        self.id = id
+        self.products_id = products_id
+        self.name = name
+        self.quantity = quantity
+        self.price = price
+        self.order_price = order_price
+        self.img_src = img_src
+        
+    }
+}
