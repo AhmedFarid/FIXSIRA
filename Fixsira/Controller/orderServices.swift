@@ -17,9 +17,10 @@ class orderServices: UIViewController , CLLocationManagerDelegate{
     @IBOutlet weak var carModelYear: UITextField!
     @IBOutlet weak var date: UITextField!
     
-    
+    var carmodelId = 0
+    var typeId = 0
     var type = ""
-    var services_id = 0
+    var locationId = 0
     var lat = 0.0
     var long = 0.0
     var orderId = 0
@@ -44,8 +45,10 @@ class orderServices: UIViewController , CLLocationManagerDelegate{
         let tapGestuer = UITapGestureRecognizer(target: self, action: #selector(orderServices.viewTapped(gesterRecognizer:)))
         view.addGestureRecognizer(tapGestuer)
         date.inputView = datePiker
-        print("123 \(services_id)")
+        //print("123 \(services_id)")
         print(type)
+            print(typeId)
+            print(locationId)
         }
     }
     
@@ -121,7 +124,7 @@ class orderServices: UIViewController , CLLocationManagerDelegate{
             return
         }
         
-        API_orders.orderService(services_id: services_id, services_Type: type, lat: lat, long: long, phone: phone.text ?? "", car_name: carName.text ?? "", car_model: carModel.text ?? "", car_model_year: carModelYear.text ?? "", date: date.text ?? "") { (error: Error?, success: Bool, orderId) in
+        API_orders.orderService(type_id: typeId , car_model_id: carmodelId , location_id: locationId , services_Type: type, lat: lat, long: long, phone: phone.text ?? "", car_name: carName.text ?? "", car_model: carModel.text ?? "", car_model_year: carModelYear.text ?? "", date: date.text ?? "") { (error: Error?, success: Bool, orderId) in
             if success {
                 self.orderId = orderId ?? 0
                 print("0000\(self.orderId)")

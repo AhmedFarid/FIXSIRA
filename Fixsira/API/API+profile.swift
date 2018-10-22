@@ -15,7 +15,7 @@ class API_profile: NSObject {
     class func profile(completion: @escaping (_ error: Error?, _ success: Bool, _ name: String?,_ email: String?)->Void) {
         
         let apiToken = "11"
-        let lang = "ar"
+        let lang = "en"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,false,nil,nil)
             return

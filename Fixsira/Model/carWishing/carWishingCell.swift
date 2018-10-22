@@ -26,7 +26,7 @@ class carWishingCell: UITableViewCell {
         address.text = prodect.address
         phone.text = prodect.phone
         telephone.text = prodect.telephone
-        reate.text = prodect.rate
+        reate.text = "\(prodect.rate_total)"
         
         wishImage.image = UIImage(named: "placeholder")
         let s = ("http://fixsira.com/site\(prodect.user_photo_url)")

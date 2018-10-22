@@ -15,7 +15,7 @@ class API_servicesTypecar: NSObject {
     class func servicesTypes(type: String,completion: @escaping (_ error: Error?,_ sparParts: [servicestypes]?)-> Void) {
         let url = URLs.servicesType
         let api_token = "11"
-        let lang = "ar"
+        let lang = "en"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,nil)
             return

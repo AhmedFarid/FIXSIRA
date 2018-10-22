@@ -16,7 +16,7 @@ class API_ServicesDetails: NSObject {
     class func servicesDataDetails(type: String, vendor_id: Int, completion: @escaping (_ error: Error?,_ sparParts: [servicesDetails]?)-> Void) {
         let url = URLs.getServices
         let api_token = "11"
-        let lang = "ar"
+        let lang = "en"
         let user_token = "1111"
         let parameters: [String: Any] = [
             "api_token": api_token,

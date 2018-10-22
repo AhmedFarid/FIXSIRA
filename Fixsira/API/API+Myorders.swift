@@ -15,7 +15,7 @@ class API_Myorders: NSObject {
     class func myOrders(completion: @escaping (_ error: Error?,_ sparParts: [myorders]?)-> Void) {
         let url = URLs.myOrderServices
         let api_token = "11"
-        let lang = "ar"
+        let lang = "en"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,nil)
             return
@@ -58,7 +58,7 @@ class API_Myorders: NSObject {
     class func myOrderProdects(completion: @escaping (_ error: Error?,_ sparParts: [myordersProdect]?)-> Void) {
         let url = URLs.myOrderShop
         let api_token = "11"
-        let lang = "ar"
+        let lang = "en"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,nil)
             return
@@ -101,7 +101,7 @@ class API_Myorders: NSObject {
     class func myOrderProdectsDetels(order_id: Int, completion: @escaping (_ error: Error?,_ sparParts: [myordersProdectDetels]?)-> Void) {
         let url = URLs.getDetelisOrderShop
         let api_token = "11"
-        let lang = "ar"
+        let lang = "en"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,nil)
             return

@@ -15,7 +15,7 @@ class API_review: NSObject {
     class func review(id: String, comment: String, rating: String, completion: @escaping (_ error: Error?, _ success: Bool)->Void) {
         
         let apiToken = "11"
-        let lang = "ar"
+        let lang = "en"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,false)
             return

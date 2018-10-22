@@ -52,7 +52,7 @@ class pullCarVC3: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let orderType = segue.destination as? orderServices else { return }
         orderType.type = sender as! String
-        orderType.services_id = singelItem?.id ?? 0
+        //orderType.servicesid = singelItem?.id ?? 0
     }
     
     @IBAction func phoneCall(_ sender: Any) {

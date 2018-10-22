@@ -13,6 +13,9 @@ class serviceTypesVCs: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     var carModels = [servicesType]()
     var servicetype = [servicestypes]()
     
+    var carModelId = 0
+    var serviceTypeId = 0
+    
     @IBOutlet weak var carModel: UIPickerView!
     @IBOutlet weak var serviceType: UIPickerView!
     
@@ -79,9 +82,25 @@ class serviceTypesVCs: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         }
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView.tag == 0 {
+            self.carModelId = carModels[row].id
+        }else {
+            self.serviceTypeId = servicetype[row].id
+        }
+    }
     
     
-    @IBAction func searchBtn(_ sender: Any) {
+    
+    @IBAction func searchBtn(_ sender: Any) {if carModelId != 0 && serviceTypeId != 0 {
+        self.performSegue(withIdentifier: "suge", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let sevice = segue.destination as? carWishingVC else { return }
+        sevice.carmodelId = carModelId
+        sevice.typeId = serviceTypeId
     }
     
 }

@@ -12,10 +12,10 @@ import Alamofire
 
 class API_orders: NSObject {
     
-    class func orderService(services_id: Int, services_Type: String, lat: Double, long: Double, phone: String, car_name: String, car_model: String, car_model_year: String, date: String, completion: @escaping (_ error: Error?, _ success: Bool, _ orderId: Int?)->Void) {
+    class func orderService(type_id: Int,car_model_id: Int, location_id: Int, services_Type: String, lat: Double, long: Double, phone: String, car_name: String, car_model: String, car_model_year: String, date: String, completion: @escaping (_ error: Error?, _ success: Bool, _ orderId: Int?)->Void) {
         
         let apiToken = "11"
-        let lang = "ar"
+        let lang = "en"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,false,nil)
             return
@@ -26,7 +26,7 @@ class API_orders: NSObject {
             "api_token": apiToken,
             "lang": lang,
             "user_token": userToken,
-            "services_id": services_id,
+            "location_id": location_id,
             "services_type": services_Type,
             "lat": lat,
             "lng": long,
@@ -34,7 +34,9 @@ class API_orders: NSObject {
             "car_name": car_name,
             "car_model": car_model,
             "car_model_year": car_model_year,
-            "schedule_date": date
+            "schedule_date": date,
+            "car_model_id":car_model_id ,
+            "type_id": type_id
             ] as [String : Any]
         print(parameters)
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil) .responseJSON { response in

@@ -12,15 +12,18 @@ import SwiftyJSON
 
 class API_Services: NSObject {
     
-    class func servicesData(type: String, completion: @escaping (_ error: Error?,_ sparParts: [Services]?)-> Void) {
+    class func servicesData(car_model_id: Int,type_id: Int ,type: String, completion: @escaping (_ error: Error?,_ sparParts: [Services]?)-> Void) {
         let url = URLs.locationList
         let api_token = "11"
-        let lang = "ar"
+        let lang = "en"
         let parameters: [String: Any] = [
             "api_token": api_token,
             "lang": lang,
-            "type": type
+            "type": type,
+            "type_id": type_id,
+            "car_model_id": car_model_id
         ]
+        print(parameters)
         
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil) .responseJSON  { response in
             

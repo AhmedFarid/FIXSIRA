@@ -13,6 +13,9 @@ class pullcarVc: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tabelView: UITableView!
     var services = [Services]()
     
+    var carmodelId = 0
+    var typeId = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +27,7 @@ class pullcarVc: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     @objc private func handleRefresh() {
-        API_Services.servicesData(type: "pull_washing"){ (error: Error?, services: [Services]?) in
+        API_Services.servicesData(car_model_id: carmodelId, type_id: typeId, type: "pull_washing"){ (error: Error?, services: [Services]?) in
             if let services = services {
                 self.services = services
                 print("xxx\(self.services)")

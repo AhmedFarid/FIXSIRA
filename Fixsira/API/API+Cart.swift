@@ -15,7 +15,7 @@ class API_Cart: NSObject {
     class func addToCart(products_id: String, completion: @escaping (_ error: Error?, _ success: Bool)->Void) {
         
         let apiToken = "11"
-        let lang = "ar"
+        let lang = "en"
         let quantity = "1"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,false)
@@ -50,7 +50,7 @@ class API_Cart: NSObject {
     class func deleteFromCart(products_id: String, completion: @escaping (_ error: Error?, _ success: Bool)->Void) {
         
         let apiToken = "11"
-        let lang = "ar"
+        let lang = "en"
         let quantity = "1"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,false)
@@ -84,7 +84,7 @@ class API_Cart: NSObject {
     class func showcart(completion: @escaping (_ error: Error?,_ sparParts: [cartData]?, _ priceVA: Int?)-> Void) {
         let url = URLs.showCart
         let api_token = "11"
-        let lang = "ar"
+        let lang = "en"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,nil, nil)
             return
@@ -131,7 +131,7 @@ class API_Cart: NSObject {
         
         let url = URLs.showCart
         let api_token = "11"
-        let lang = "ar"
+        let lang = "en"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,nil)
             return

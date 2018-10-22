@@ -15,7 +15,7 @@ class API_VendorProfile: NSObject {
     class func servicesTypes(location_id: Int,completion: @escaping (_ error: Error?,_ sparParts: [vendorProfile]?)-> Void) {
         let url = URLs.getVendorProfile
         let api_token = "11"
-        let lang = "ar"
+        let lang = "en"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,nil)
             return

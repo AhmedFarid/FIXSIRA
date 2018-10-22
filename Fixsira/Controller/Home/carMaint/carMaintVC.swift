@@ -12,6 +12,8 @@ class carMaintVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tabelView: UITableView!
     var services = [Services]()
+    var carmodelId = 0
+    var typeId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,7 @@ class carMaintVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc private func handleRefresh() {
-        API_Services.servicesData(type: "car_maintenance"){ (error: Error?, services: [Services]?) in
+        API_Services.servicesData(car_model_id: carmodelId, type_id: typeId, type: "car_maintenance"){ (error: Error?, services: [Services]?) in
             if let services = services {
                 self.services = services
                 print("xxx\(self.services)")
@@ -59,6 +61,8 @@ class carMaintVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let distantion = segue.destination as? carMaintVC2{
+            distantion.carmodelId = carmodelId
+            distantion.typeId = typeId
             if let prodacet = sender as? Services {
                 distantion.singelItem = prodacet
             }

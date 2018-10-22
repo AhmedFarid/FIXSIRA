@@ -15,7 +15,7 @@ class API: NSObject {
     class func productsList(cat_id: String ,srch_term: String, page: Int = 1, completion: @escaping (_ error: Error?,_ sparParts: [SparParts]?, _ last_page: Int)-> Void) {
         let url = URLs.productsList
         let api_token = "11"
-        let lang = "ar"
+        let lang = "en"
         let parameters: [String: Any] = [
             "api_token": api_token,
             "lang": lang,
@@ -56,7 +56,7 @@ class API: NSObject {
             let url = URLs.productImages
             let api_token = "11"
             let user_token = "1111"
-            let lang = "ar"
+            let lang = "en"
             let parameters: [String: Any] = [
                 "api_token": api_token,
                 "lang": lang,
@@ -92,7 +92,7 @@ class API: NSObject {
     class func productsListCat(page: Int = 1, completion: @escaping (_ error: Error?,_ sparParts: [SparPartCat]?, _ last_page: Int)-> Void) {
         let url = URLs.categoryList
         let api_token = "11"
-        let lang = "ar"
+        let lang = "en"
         let parameters: [String: Any] = [
             "api_token": api_token,
             "lang": lang,

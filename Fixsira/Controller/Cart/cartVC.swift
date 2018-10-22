@@ -30,6 +30,7 @@ class cartVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     override func viewWillAppear(_ animated: Bool) {
         handleRefresh()
+        self.tableview.reloadData()
     }
     
     @objc private func handleRefresh() {
@@ -64,13 +65,16 @@ class cartVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 API_Cart.addToCart(products_id: cells.products_id) { (error: Error?, success: Bool) in
                     if success {
                         self.handleRefresh()
+                        self.tableview.reloadData()
                         //self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order")
                     }else{
                         //self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
                     }
                     self.handleRefresh()
+                    self.tableview.reloadData()
                 }
                 self.handleRefresh()
+                self.tableview.reloadData()
             }
             
             cell.deleteAction = {
@@ -78,13 +82,16 @@ class cartVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                     self.handleRefresh()
                     if success {
                         self.handleRefresh()
+                        self.tableview.reloadData()
                         //self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order")
                     }else{
                         //self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
                     }
                     self.handleRefresh()
+                    self.tableview.reloadData()
                 })
                 self.handleRefresh()
+                self.tableview.reloadData()
             }
             //self.handleRefresh()
             return cell
