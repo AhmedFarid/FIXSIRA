@@ -24,8 +24,8 @@ class carWishingCell: UITableViewCell {
         vrndorName.text = prodect.vendor_name
         name.text = prodect.name
         address.text = prodect.address
-        phone.text = prodect.phone
-        telephone.text = prodect.telephone
+        phone.text = "\(prodect.price)"
+        telephone.text = "\(prodect.rate_average) Rate This"
         reate.text = "\(prodect.rate_total)"
         
         wishImage.image = UIImage(named: "placeholder")

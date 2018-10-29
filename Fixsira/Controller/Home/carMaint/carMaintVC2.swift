@@ -19,6 +19,7 @@ class carMaintVC2: UIViewController, UITableViewDataSource, UITableViewDelegate 
     var carmodelId = 0
     var typeId = 0
     var locationId = 0
+    var price = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +72,8 @@ class carMaintVC2: UIViewController, UITableViewDataSource, UITableViewDelegate 
                 distantion.carmodelId = carmodelId
                 distantion.typeId = typeId
                 distantion.locationId = locationId
+                distantion.vendorID = prodacet.id
+                distantion.prices = singelItem?.price ?? ""
             }
         }
     }

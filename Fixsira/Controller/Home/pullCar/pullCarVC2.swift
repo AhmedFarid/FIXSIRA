@@ -29,16 +29,16 @@ class pullCarVC2: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     @objc private func handleRefresh() {
-        API_ServicesDetails.servicesDataDetails(type: "pull_washing", vendor_id: singelItem?.id ?? 1){ (error: Error?, serviceDeatils: [servicesDetails]?) in
+        API_ServicesDetails.servicesDataDetails(type: "pull_washing", vendor_id: "\(singelItem?.id ?? 1)"){ (error: Error?, serviceDeatils: [servicesDetails]?) in
             if let serviceDeatils = serviceDeatils {
                 self.serviceDeatils = serviceDeatils
                 print("xxx\(self.serviceDeatils)")
                 self.tableView.reloadData()
             }
         }
-        
+
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

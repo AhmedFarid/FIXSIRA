@@ -12,12 +12,15 @@ class serviceTypeVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     
     var carModels = [servicesType]()
     var servicetype = [servicestypes]()
+    var setlectServices = ["Mobile Service","Out Side"]
     
     var carModelId = 0
     var serviceTypeId = 0
+    var seleectServiceType = ""
     
     @IBOutlet weak var carModel: UIPickerView!
     @IBOutlet weak var serviceType: UIPickerView!
+    @IBOutlet weak var selectServices: UIPickerView!
     
     
     override func viewDidLoad() {
@@ -29,8 +32,11 @@ class serviceTypeVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
         serviceType.delegate = self
         serviceType.dataSource = self
         
+        selectServices.delegate = self
+        selectServices.dataSource = self
+        
         handleRefresh()
-        handleRefreshs()
+        //handleRefreshs()
     }
 
     
@@ -60,7 +66,9 @@ class serviceTypeVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         if pickerView.tag == 0 {
             return 1
-        } else {
+        } else if pickerView.tag == 1 {
+            return 1
+        }else {
             return 1
         }
     }
@@ -68,25 +76,31 @@ class serviceTypeVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView.tag == 0 {
             return carModels.count
-        } else {
+        } else if pickerView.tag == 1{
             return servicetype.count
+        } else {
+            return setlectServices.count
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 0 {
             return carModels[row].models
-            
-        }else {
+        }else if pickerView.tag == 1{
             return servicetype[row].name
+        }else{
+            return setlectServices[row]
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 0 {
             self.carModelId = carModels[row].id
-        }else {
+            handleRefreshs()
+        }else if pickerView.tag == 1{
             self.serviceTypeId = servicetype[row].id
+        }else {
+            self.seleectServiceType = setlectServices[row]
         }
     }
     

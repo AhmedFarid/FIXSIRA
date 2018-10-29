@@ -14,9 +14,8 @@ class pullCarCell: UITableViewCell {
     @IBOutlet weak var vrndorName: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var phone: UILabel!
-    @IBOutlet weak var telephone: UILabel!
     @IBOutlet weak var reate: UILabel!
+    @IBOutlet weak var rateAvg: UILabel!
     
     
     func configuerCell(prodect: Services) {
@@ -24,8 +23,8 @@ class pullCarCell: UITableViewCell {
         vrndorName.text = prodect.vendor_name
         name.text = prodect.name
         address.text = prodect.address
-        phone.text = prodect.phone
-        telephone.text = prodect.telephone
+        rateAvg.text = "\(prodect.rate_average) Rate This"
+        //telephone.text = prodect.telephone
         reate.text = "\(prodect.rate_total)"
         
         wishImage.image = UIImage(named: "placeholder")

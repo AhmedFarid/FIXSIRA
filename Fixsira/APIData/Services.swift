@@ -35,10 +35,11 @@ class Services: NSObject {
     var lng: String
     var rate_total: Int
     var rate_average: Int
+    var price: String
     
     init?(dict: [String: JSON]){
         
-        guard let id = dict["id"]?.int, let vendor_name = dict["vendor_name"]?.string, let user_photo_url = dict["user_photo_url"]?.string, let name = dict["name"]?.string, let address = dict["address"]?.string, let phone = dict["phone"]?.string, let telephone = dict["telephone"]?.string, let lat = dict["lat"]?.string, let lng = dict["lng"]?.string,  let rate_total = dict["rate_total"]?.int,let rate_average = dict["rate_average"]?.int else {return nil}
+        guard let id = dict["id"]?.int, let vendor_name = dict["vendor_name"]?.string, let user_photo_url = dict["user_photo_url"]?.string, let name = dict["name"]?.string, let address = dict["address"]?.string, let phone = dict["phone"]?.string, let telephone = dict["telephone"]?.string, let lat = dict["lat"]?.string, let lng = dict["lng"]?.string,  let rate_total = dict["rate_total"]?.int,let rate_average = dict["rate_average"]?.int,let price = dict["price"]?.string else {return nil}
         
         self.id = id
         self.vendor_name = vendor_name
@@ -52,5 +53,6 @@ class Services: NSObject {
         self.lng = lng
         self.rate_total = rate_total
         self.rate_average = rate_average
+        self.price = price
     }
 }

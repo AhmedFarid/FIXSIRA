@@ -68,6 +68,8 @@ class carWishingVC2: UIViewController , UITableViewDataSource, UITableViewDelega
                 distantion.carmodelId = carmodelId
                 distantion.typeId = typeId
                 distantion.locationId = locationId
+                distantion.vendorID = prodacet.id
+                distantion.prices = singelItem?.price ?? ""
             }
         }
     }

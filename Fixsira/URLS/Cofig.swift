@@ -51,4 +51,6 @@ struct URLs {
     static let servicesType = main + "servicesType"
     
     static let getVendorProfile = main + "getVendorProfile"
+    
+    static let getDays = main + "getDays"
 }

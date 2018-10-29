@@ -9,11 +9,13 @@
 import UIKit
 
 class pullCarDetilesCell: UITableViewCell {
+    
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var des: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var rate: UILabel!
+    @IBOutlet weak var Distance: UILabel!
     
     
     func configuerCell(prodect: servicesDetails) {

@@ -15,6 +15,7 @@ class carWishingVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var services = [Services]()
     var carmodelId = 0
     var typeId = 0
+    var selectServiec = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

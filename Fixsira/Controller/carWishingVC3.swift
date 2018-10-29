@@ -40,12 +40,15 @@ class carWishingVC3: UIViewController {
     @IBOutlet weak var addresss: UILabel!
     @IBOutlet weak var mapp: MKMapView!
     
+    
     var singelItems: vendorProfile?
     var ima = ""
     var rates = ""
     var carmodelId = 0
     var typeId = 0
     var locationId = 0
+    var vendorID = 0
+    var prices = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +57,7 @@ class carWishingVC3: UIViewController {
         des.text = singelItems?.descri
         addresss.text = singelItems?.address
         rate.text = rates
+        price.text = prices
         
         image.image = UIImage(named: "placeholder")
         let s = ("http://fixsira.com/site\(ima)")
@@ -80,18 +84,31 @@ class carWishingVC3: UIViewController {
         self.performSegue(withIdentifier: "suge", sender: "car_washing")
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let orderType = segue.destination as? orderServices else { return }
-        orderType.type = sender as! String
-        orderType.carmodelId = carmodelId
-        orderType.typeId = typeId
-        orderType.locationId = locationId
-        
-        
-    }
     
     @IBAction func phoneCall(_ sender: Any) {
     }
+    
+    @IBAction func workHours(_ sender: Any) {
+    }
+    
+    @IBAction func vendorBrodect(_ sender: Any) {
+    }
+    
+    @IBAction func vendorServices(_ sender: Any) {
+        self.performSegue(withIdentifier: "showServices", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let orderType = segue.destination as? orderServices {
+            orderType.type = sender as! String
+            orderType.carmodelId = carmodelId
+            orderType.typeId = typeId
+            orderType.locationId = locationId
+        }else if let prodectsVendor = segue.destination as? vendorServices {
+            prodectsVendor.vendorId = singelItems?.vendor_id ?? ""
+            prodectsVendor.type = "car_washing"
+        }
+}
     
     
 }

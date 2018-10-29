@@ -38,7 +38,7 @@ class orderServices: UIViewController , CLLocationManagerDelegate{
             locationManger.delegate = self
             locationManger.desiredAccuracy = kCLLocationAccuracyBest
             locationManger.startUpdatingLocation()
-            
+        }
         datePiker = UIDatePicker()
         datePiker?.datePickerMode = .dateAndTime
         datePiker?.addTarget(self, action: #selector(orderServices.dateChanged(datePiker:)), for: .valueChanged)
@@ -47,9 +47,8 @@ class orderServices: UIViewController , CLLocationManagerDelegate{
         date.inputView = datePiker
         //print("123 \(services_id)")
         print(type)
-            print(typeId)
-            print(locationId)
-        }
+        print(typeId)
+        print(locationId)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

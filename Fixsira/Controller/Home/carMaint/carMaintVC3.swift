@@ -43,11 +43,14 @@ class carMaintVC3: UIViewController {
     
     
     var singelItems: vendorProfile?
+    
     var ima = ""
     var rates = ""
     var carmodelId = 0
     var typeId = 0
     var locationId = 0
+    var vendorID = 0
+    var prices = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +59,8 @@ class carMaintVC3: UIViewController {
         des.text = singelItems?.descri
         addresss.text = singelItems?.address
         rate.text = rates
+        price.text = prices
+        print("dd\(vendorID)")
         
         image.image = UIImage(named: "placeholder")
         let s = ("http://fixsira.com/site\(ima)")
@@ -84,19 +89,39 @@ class carMaintVC3: UIViewController {
         self.performSegue(withIdentifier: "suge", sender: "car_maintenance")
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let orderType = segue.destination as? orderServices else { return }
-        orderType.type = sender as! String
-        orderType.carmodelId = carmodelId
-        orderType.typeId = typeId
-        orderType.locationId = locationId
-        //orderType.services_id = singelItem?.id ?? 0
-    }
+    
     
     @IBAction func phoneCall(_ sender: Any) {
     }
     
+    @IBAction func workHours(_ sender: Any) {
+        self.performSegue(withIdentifier: "workHours", sender: nil)
+    }
     
+    
+    @IBAction func vendorProdect(_ sender: Any) {
+        self.performSegue(withIdentifier: "showProdects", sender: nil)
+    }
+    
+    @IBAction func vendorServices(_ sender: Any) {
+        self.performSegue(withIdentifier: "showServices", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let orderType = segue.destination as? orderServices {
+            orderType.type = sender as! String
+            orderType.carmodelId = carmodelId
+            orderType.typeId = typeId
+            orderType.locationId = locationId
+        }else if let prodectsVendor = segue.destination as? vendorServices {
+            prodectsVendor.vendorId = singelItems?.vendor_id ?? ""
+            prodectsVendor.type = "car_maintenance"
+        }else if let vendorPeodects = segue.destination as? vendorBrodect {
+            vendorPeodects.vendorId = singelItems?.vendor_id ?? ""
+        }else if let vendorhours = segue.destination as? workhorusVC {
+            vendorhours.locationId = singelItems?.id ?? 19
+        }
+    }
 }
 
 extension carMaintVC3: MKMapViewDelegate {

@@ -20,7 +20,7 @@ class servicesDetails: NSObject {
     
     init?(dict: [String: JSON]){
         
-        guard let id = dict["id"]?.int, let name = dict["name"]?.string, let descrip = dict["description"]?.string, let price = dict["price"]?.string, let img = dict["img"]?.string, let rate = dict["rate"]?.string else {return nil}
+        guard let id = dict["id"]?.int, let name = dict["name"]?.string, let descrip = dict["description"]?.string, let price = dict["price"]?.string, let img = dict["img"]?.string , let rate = dict["rate"]?.string else {return nil}
         
         self.id = id
         self.name = name

@@ -12,7 +12,7 @@ import SwiftyJSON
 
 
 class API: NSObject {
-    class func productsList(cat_id: String ,srch_term: String, page: Int = 1, completion: @escaping (_ error: Error?,_ sparParts: [SparParts]?, _ last_page: Int)-> Void) {
+    class func productsList(vendor_Id: String,cat_id: String ,srch_term: String, page: Int = 1, completion: @escaping (_ error: Error?,_ sparParts: [SparParts]?, _ last_page: Int)-> Void) {
         let url = URLs.productsList
         let api_token = "11"
         let lang = "en"
@@ -21,7 +21,8 @@ class API: NSObject {
             "lang": lang,
             "page": page,
             "srch_term":srch_term,
-            "cat_id":cat_id
+            "cat_id":cat_id,
+            "vendor_id": vendor_Id
         ]
         
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil) .responseJSON  { response in

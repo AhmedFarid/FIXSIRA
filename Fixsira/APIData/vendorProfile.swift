@@ -11,6 +11,8 @@ import SwiftyJSON
 
 class vendorProfile: NSObject {
     
+    var id: Int
+    var vendor_id: String
     var name: String
     var address: String
     var descri: String
@@ -22,8 +24,10 @@ class vendorProfile: NSObject {
     
     init?(dict: [String: JSON]){
         
-        guard let name = dict["name"]?.string, let address = dict["address"]?.string,let descri = dict["description"]?.string, let phone = dict["phone"]?.string, let telephone = dict["telephone"]?.string, let lat = dict["lat"]?.string, let lng = dict["lng"]?.string else {return nil}
+        guard let id = dict["id"]?.int,let name = dict["name"]?.string, let address = dict["address"]?.string,let descri = dict["description"]?.string, let phone = dict["phone"]?.string, let telephone = dict["telephone"]?.string, let lat = dict["lat"]?.string, let lng = dict["lng"]?.string,let vendor_id = dict["vendor_id"]?.string else {return nil}
         
+        self.id = id
+        self.vendor_id = vendor_id
         self.name = name
         self.descri = descri
         self.address = address

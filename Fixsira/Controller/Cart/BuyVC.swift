@@ -11,12 +11,8 @@ import UIKit
 class BuyVC: UIViewController {
 
     @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var company: UITextField!
     @IBOutlet weak var add1: UITextField!
-    @IBOutlet weak var city1: UITextField!
-    @IBOutlet weak var postcode1: UITextField!
     @IBOutlet weak var phone1: UITextField!
-    @IBOutlet weak var fax: UITextField!
     @IBOutlet weak var email1: UITextField!
     @IBOutlet weak var note: UITextView!
     
@@ -37,15 +33,15 @@ class BuyVC: UIViewController {
             return
         }
         
-        guard let city1s = city1.text, !city1s.isEmpty else {
-            self.showAlert(title: "Order Filed", message: "enter your city")
-            return
-        }
+//        guard let city1s = city1.text, !city1s.isEmpty else {
+//            self.showAlert(title: "Order Filed", message: "enter your city")
+//            return
+//        }
         
-        guard let postcode1s = postcode1.text, !postcode1s.isEmpty else {
-            self.showAlert(title: "Order Filed", message: "enter your postcode")
-            return
-        }
+//        guard let postcode1s = postcode1.text, !postcode1s.isEmpty else {
+//            self.showAlert(title: "Order Filed", message: "enter your postcode")
+//            return
+//        }
         
         guard let phone1s = phone1.text, !phone1s.isEmpty else {
             self.showAlert(title: "Order Filed", message: "enter your phone")
@@ -58,7 +54,7 @@ class BuyVC: UIViewController {
         }
 
     
-        API_Buy.Buying(order_note: note.text ?? "", name: name.text ?? "", company_name: company.text ?? "", email: email1.text ?? "", phone: phone1.text ?? "", fax: fax.text ?? "", adddress: add1.text ?? "", city: city1.text ?? "", postcode: postcode1.text ?? "") { (error:Error?, success: Bool, order_id) in
+        API_Buy.Buying(order_note: note.text ?? "", name: name.text ?? "", company_name: "", email: email1.text ?? "", phone: phone1.text ?? "", fax: "", adddress: add1.text ?? "", city:  "", postcode:  "") { (error:Error?, success: Bool, order_id) in
             if success{
                 self.orderId = order_id ?? 0
                 print("0000\(self.orderId)")

@@ -18,6 +18,12 @@ class cartVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var price = 0
     
     
+    lazy var refresher: UIRefreshControl = {
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        return refresher
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +31,8 @@ class cartVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         tableview.dataSource = self
         tableview.delegate = self
         
+        
+        tableview.addSubview(refresher)
         handleRefresh()
     }
     
@@ -33,8 +41,14 @@ class cartVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         self.tableview.reloadData()
     }
     
+    var isLoading: Bool = false
+    
     @objc private func handleRefresh() {
+        self.refresher.endRefreshing()
+        guard !isLoading else { return }
+        isLoading = true
         API_Cart.showcart{ (error: Error?, carts: [cartData]?,price) in
+            self.isLoading = false
             if let carts = carts {
                 self.carts = carts
                 print("xxx\(self.carts)")

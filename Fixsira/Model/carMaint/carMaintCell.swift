@@ -18,6 +18,7 @@ class carMaintCell: UITableViewCell {
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var telephone: UILabel!
     @IBOutlet weak var reate: UILabel!
+    @IBOutlet weak var rateAvg: UILabel!
     
     
     func configuerCell(prodect: Services) {
@@ -25,9 +26,10 @@ class carMaintCell: UITableViewCell {
         vrndorName.text = prodect.vendor_name
         name.text = prodect.name
         address.text = prodect.address
-        phone.text = prodect.phone
+        phone.text = "\(prodect.price)"
         telephone.text = prodect.telephone
         reate.text = "\(prodect.rate_total)"
+        rateAvg.text = "\(prodect.rate_average) Rate This"
         
         wishImage.image = UIImage(named: "placeholder")
         let s = ("http://fixsira.com/site\(prodect.user_photo_url)")
