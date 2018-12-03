@@ -7,28 +7,74 @@
 //
 
 import UIKit
+import CoreLocation
 
-class carWishingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class carWishingVC: UIViewController, UITableViewDelegate, UITableViewDataSource ,CLLocationManagerDelegate{
 
     @IBOutlet weak var tabelView: UITableView!
     
     var services = [Services]()
     var carmodelId = 0
-    var typeId = 0
+    var typeId = ""
     var selectServiec = ""
+    var typeFix = ""
+    var lat = 0.0
+    var long = 0.0
+    
+    let locationManger = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManger.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManger.delegate = self
+            locationManger.desiredAccuracy = kCLLocationAccuracyBest
+            locationManger.startUpdatingLocation()
+        }
         
         tabelView.delegate = self
         tabelView.dataSource = self
         
         handleRefresh()
+        print(lat)
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            //print("mmmm\(location.coordinate)")
+            self.lat = location.coordinate.latitude
+            self.long = location.coordinate.longitude
+            print("aaaaaa\(self.lat),\(self.long)")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if(status == CLAuthorizationStatus.denied) {
+            showLocationDisable()
+        }
+    }
+    
+    func showLocationDisable() {
+        
+        let alertController = UIAlertController(title: "Background Loacation Access Disable", message: "in order to we need your location", preferredStyle: .alert)
+        
+        let canncelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        alertController.addAction(canncelAction)
+        
+        let openAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
+            if let url = URL(string: UIApplication.openSettingsURLString){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        alertController.addAction(openAction)
+        self.present(alertController,animated: true, completion: nil)
     }
     
     
     @objc private func handleRefresh() {
-        API_Services.servicesData(car_model_id: carmodelId, type_id: typeId, type: "car_washing"){ (error: Error?, services: [Services]?) in
+        API_Services.servicesData(car_model_id: carmodelId, type_id: typeId, type: "car_washing", type_vist: selectServiec){ (error: Error?, services: [Services]?) in
             if let services = services {
                 self.services = services
                 print("xxx\(self.services)")
@@ -50,6 +96,14 @@ class carWishingVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tabelView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? carWishingCell {
             let cells = services[indexPath.row]
+            let myLocation = CLLocation(latitude: self.lat, longitude: self.long)
+            let CenerLocatin = CLLocation(latitude: Double(cells.centerLat) ?? 0.0, longitude: Double(cells.centerLng) ?? 0.0)
+            cell.distance.text = "\(Int(myLocation.distance(from: CenerLocatin) / 1000)) KM"
+            if typeFix == "Mobile Service"{
+            cell.phone.text = cells.totalPrice
+            }else {
+                cell.phone.text = cells.price
+            }
             cell.configuerCell(prodect: cells)
             return cell
         }else {
@@ -67,6 +121,7 @@ class carWishingVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         if let distantion = segue.destination as? carWishingVC2{
             distantion.carmodelId = carmodelId
             distantion.typeId = typeId
+            distantion.typeFix = typeFix
             if let prodacet = sender as? Services {
                 distantion.singelItem = prodacet
             }

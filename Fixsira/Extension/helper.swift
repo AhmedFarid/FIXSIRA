@@ -23,6 +23,14 @@ class helper: NSObject {
         UIView.transition(with: window, duration: 0.5, options: .transitionFlipFromTop, animations: nil, completion: nil)
     }
     
+    class func dleteAPIToken() {
+        let def = UserDefaults.standard
+        def.removeObject(forKey: "user_token")
+        def.synchronize()
+        
+        restartApp()
+    }
+    
     class func saveAPIToken(token: String) {
         let def = UserDefaults.standard
         def.setValue(token, forKey: "user_token")

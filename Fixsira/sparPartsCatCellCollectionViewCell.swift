@@ -26,7 +26,7 @@ class sparPartsCatCellCollectionViewCell: UICollectionViewCell {
         //        }
         
         
-        let s = ("http://fixsira.com/site\(prodect.category_img_url)")
+        let s = ("http://fixsira.com/\(prodect.category_img_url)")
         let encodedLink = s.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let encodedURL = NSURL(string: encodedLink!)! as URL
         

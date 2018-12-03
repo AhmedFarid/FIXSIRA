@@ -8,14 +8,18 @@
 
 import UIKit
 
-class vendorBrodect: UIViewController {
-
+class vendorBrodect: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tabelViewdata: UITableView!
+    
     var sparparts = [SparParts]()
     var vendorId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tabelViewdata.delegate = self
+        tabelViewdata.dataSource = self
         handleRefresh()
     }
     
@@ -24,9 +28,29 @@ class vendorBrodect: UIViewController {
             if let sparparts = sparparts {
                 self.sparparts = sparparts
                 print("xxx\(self.sparparts)")
-                //self.collection.reloadData()
+                self.tabelViewdata.reloadData()
             }
         }
         
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sparparts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tabelViewdata.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? prodectVendor {
+            let cells = sparparts[indexPath.row]
+            cell.configuerCell(prodect: cells)
+            return cell
+        }else{
+            return prodectVendor()
+        }
+    }
+    
+    
 }

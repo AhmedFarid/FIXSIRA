@@ -35,7 +35,7 @@ class sparePartsVC2: UIViewController,UICollectionViewDelegate ,UICollectionView
         priceTXT.text = singelItem?.sale_price
         partnameTXT.text = singelItem?.title
         
-        let s = ("http://fixsira.com/site"+(singelItem?.image_url)!)
+        let s = ("http://fixsira.com/"+(singelItem?.image_url)!)
         let encodedLink = s.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let encodedURL = NSURL(string: encodedLink!)! as URL
         
@@ -77,14 +77,14 @@ class sparePartsVC2: UIViewController,UICollectionViewDelegate ,UICollectionView
     }
     
     @IBAction func addToCart(_ sender: Any) {
-        API_Cart.addToCart(products_id: singelItem?.id ?? "") { (error: Error?, success: Bool) in
+        API_Cart.addToCart(vendor_id: singelItem?.author_id ?? "", products_id: singelItem?.id ?? "") { (error: Error?, success: Bool) in
             if success {
                 self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order")
             }else{
                 self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
             }
-            self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
+            //self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
         }
-        self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
+        //self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
     }
 }

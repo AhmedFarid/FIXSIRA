@@ -54,8 +54,8 @@ class myOrderDeatils: UIViewController ,UITableViewDelegate, UITableViewDataSour
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let distantion = segue.destination as? reviewService {
-            if let prodact = sender as? myorders {
+        if let distantion = segue.destination as? reviewProdects {
+            if let prodact = sender as? myordersProdectDetels {
                 distantion.singleItem = prodact
             }
         }

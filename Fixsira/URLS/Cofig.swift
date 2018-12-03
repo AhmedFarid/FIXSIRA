@@ -10,7 +10,9 @@ import Foundation
 
 struct URLs {
     
-    static let main = "http://fixsira.com/site/api/"
+    static let main = "http://www.emarketingbakers.com/api/"
+    
+    static let banner = main + "banner"
     
     static let login = main + "login"
     

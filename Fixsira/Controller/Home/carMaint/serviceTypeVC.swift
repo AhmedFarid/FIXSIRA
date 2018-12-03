@@ -12,10 +12,10 @@ class serviceTypeVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     
     var carModels = [servicesType]()
     var servicetype = [servicestypes]()
-    var setlectServices = ["Mobile Service","Out Side"]
+    var setlectServices = ["Mobile Service","On Site"]
     
     var carModelId = 0
-    var serviceTypeId = 0
+    var serviceTypeId = ""
     var seleectServiceType = ""
     
     @IBOutlet weak var carModel: UIPickerView!
@@ -107,7 +107,7 @@ class serviceTypeVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     
     
     @IBAction func searchBtn(_ sender: Any) {
-        if carModelId != 0 && serviceTypeId != 0 {
+        if carModelId != 0 && serviceTypeId != "" {
             self.performSegue(withIdentifier: "suge", sender: nil)
         }
     }
@@ -116,6 +116,8 @@ class serviceTypeVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
         guard let sevice = segue.destination as? carMaintVC else { return }
         sevice.carmodelId = carModelId
         sevice.typeId = serviceTypeId
+        sevice.selectServiec = seleectServiceType
+        sevice.typeFix = seleectServiceType
     }
     
 }

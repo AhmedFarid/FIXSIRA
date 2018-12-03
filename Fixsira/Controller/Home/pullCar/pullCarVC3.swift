@@ -16,9 +16,14 @@ class pullCarVC3: UIViewController {
     @IBOutlet weak var des: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var rate: UILabel!
+    @IBOutlet weak var centerName: UILabel!
+    @IBOutlet weak var centerAddress: UILabel!
     
     
     var phone = ""
+    var centerAdd = ""
+    var centerNa = ""
+    var center_Id = ""
     var singelItem: servicesDetails?
     
     override func viewDidLoad() {
@@ -29,10 +34,12 @@ class pullCarVC3: UIViewController {
         name.text = singelItem?.name
         des.text = singelItem?.descrip
         price.text = singelItem?.price
-        rate.text = singelItem?.rate
+        rate.text = "\(singelItem?.rate ?? 0) : \(singelItem?.averageRate ?? 0) Rate This"
+        centerName.text = "Center Name: \(centerNa)"
+        centerAddress.text = "Center Address: \(centerAdd)"
         
         image.image = UIImage(named: "placeholder")
-        let s = ("http://fixsira.com/site\(singelItem?.img ?? "")")
+        let s = ("http://fixsira.com/\(singelItem?.img ?? "")")
         let encodedLink = s.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let encodedURL = NSURL(string: encodedLink!)! as URL
 
@@ -46,16 +53,17 @@ class pullCarVC3: UIViewController {
     
     
     @IBAction func resevi(_ sender: Any) {
-        self.performSegue(withIdentifier: "suge", sender: "car_pull")
+        self.performSegue(withIdentifier: "suge", sender: "pull_washing")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let orderType = segue.destination as? orderServices else { return }
         orderType.type = sender as! String
-        //orderType.servicesid = singelItem?.id ?? 0
+        orderType.locationId = center_Id
+        orderType.services_id = singelItem?.serviceId ?? ""
     }
     
-    @IBAction func phoneCall(_ sender: Any) {
+    @IBAction func call(_ sender: Any) {
         if let url = URL(string:"tel://\(phone)"), UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }

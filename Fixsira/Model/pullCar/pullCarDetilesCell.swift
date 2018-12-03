@@ -23,10 +23,10 @@ class pullCarDetilesCell: UITableViewCell {
         name.text = prodect.name
         des.text = prodect.descrip
         price.text = prodect.price
-        rate.text = prodect.rate
+        rate.text = "\(prodect.rate)"
         
         img.image = UIImage(named: "placeholder")
-        let s = ("http://fixsira.com/site\(prodect.img)")
+        let s = ("http://fixsira.com/\(prodect.img)")
         let encodedLink = s.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let encodedURL = NSURL(string: encodedLink!)! as URL
         

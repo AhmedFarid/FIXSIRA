@@ -76,7 +76,7 @@ class cartVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             
             cell.addAction = {
                 self.handleRefresh()
-                API_Cart.addToCart(products_id: cells.products_id) { (error: Error?, success: Bool) in
+                API_Cart.addToCart(vendor_id: cells.vendor_id, products_id: cells.products_id) { (error: Error?, success: Bool) in
                     if success {
                         self.handleRefresh()
                         self.tableview.reloadData()

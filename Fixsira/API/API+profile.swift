@@ -42,7 +42,7 @@ class API_profile: NSObject {
                 
                 if let name = json["data"]["display_name"].string {
                     print("orderId\(name)")
-                if let email = json["data"]["email"].string {
+                    if let email = json["data"]["email"].string {
                     print("orderId\(email)")
                     completion(nil, true,name,email)
                     }

@@ -15,20 +15,22 @@ class carWishingVC2: UIViewController , UITableViewDataSource, UITableViewDelega
     var vendorProfiles = [vendorProfile]()
     
     var carmodelId = 0
-    var typeId = 0
-    var locationId = 0
+    var typeId = ""
+    var locationId = ""
+    var typeFix = ""
+    var services_id = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
-        locationId = singelItem?.id ?? 0
+        locationId = singelItem?.vendorId ?? ""
         handleRefresh()
     }
     
     @objc private func handleRefresh() {
-        API_VendorProfile.servicesTypes(location_id:singelItem?.id ?? 0){ (error: Error?, vendorProfiles: [vendorProfile]?) in
+        API_VendorProfile.servicesTypes(location_id:singelItem?.centerId ?? ""){ (error: Error?, vendorProfiles: [vendorProfile]?) in
             if let vendorProfiles = vendorProfiles {
                 self.vendorProfiles = vendorProfiles
                 print("xxx\(self.vendorProfiles)")
@@ -63,13 +65,19 @@ class carWishingVC2: UIViewController , UITableViewDataSource, UITableViewDelega
         if let distantion = segue.destination as? carWishingVC3{
             if let prodacet = sender as? vendorProfile {
                 distantion.singelItems = prodacet
-                distantion.ima = singelItem?.user_photo_url ?? ""
-                distantion.rates = "\(singelItem?.rate_total ?? 0)"
+                distantion.ima = singelItem?.image ?? ""
+                distantion.rates = "\(singelItem?.rating ?? 0)"
                 distantion.carmodelId = carmodelId
                 distantion.typeId = typeId
-                distantion.locationId = locationId
+                distantion.locationId = singelItem?.centerId ?? ""
                 distantion.vendorID = prodacet.id
+                if typeFix == "On Site"{
                 distantion.prices = singelItem?.price ?? ""
+                }else{
+                    distantion.prices = singelItem?.totalPrice ?? ""
+                }
+                distantion.typeFix = typeFix
+                distantion.services_id = singelItem?.servicesId ?? ""
             }
         }
     }

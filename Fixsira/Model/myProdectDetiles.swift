@@ -22,7 +22,7 @@ class myProdectDetiles: UITableViewCell {
         quantity.text = prodect.quantity
         price.text = prodect.price
         imag.image = UIImage(named: "placeholder")
-        let s = ("http://fixsira.com/site\(prodect.img_src)")
+        let s = ("http://fixsira.com/\(prodect.img_src)")
         let encodedLink = s.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let encodedURL = NSURL(string: encodedLink!)! as URL
         

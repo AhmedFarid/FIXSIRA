@@ -31,13 +31,13 @@ class servicesType: NSObject {
 
 class servicestypes: NSObject {
     
-    var id: Int
+    var id: String
     var name: String
     var desc_txt: String
     
     init?(dict: [String: JSON]){
         
-        guard let id = dict["id"]?.int, let name = dict["name"]?.string,let desc_txt = dict["desc_txt"]?.string else {return nil}
+        guard let id = dict["servicesId"]?.string, let name = dict["ServiceName"]?.string,let desc_txt = dict["Description"]?.string else {return nil}
         
         self.id = id
         self.name = name

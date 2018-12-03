@@ -13,14 +13,14 @@ class pullCarVC2: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
-    var singelItem: Services?
+    var singelItem: PullCar?
     var serviceDeatils = [servicesDetails]()
     
     var phone = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.phone = singelItem?.phone ?? ""
+        self.phone = singelItem?.centerPhone ?? ""
         print("ssss\(self.phone)")
         tableView.delegate = self
         tableView.dataSource = self
@@ -29,7 +29,7 @@ class pullCarVC2: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     @objc private func handleRefresh() {
-        API_ServicesDetails.servicesDataDetails(type: "pull_washing", vendor_id: "\(singelItem?.id ?? 1)"){ (error: Error?, serviceDeatils: [servicesDetails]?) in
+        API_ServicesDetails.servicesDataDetails(type: "pull_washing", vendor_id: singelItem?.vendorId ?? ""){ (error: Error?, serviceDeatils: [servicesDetails]?) in
             if let serviceDeatils = serviceDeatils {
                 self.serviceDeatils = serviceDeatils
                 print("xxx\(self.serviceDeatils)")
@@ -66,6 +66,9 @@ class pullCarVC2: UIViewController, UITableViewDataSource, UITableViewDelegate {
             if let prodacet = sender as? servicesDetails {
                 distantion.singelItem = prodacet
                 distantion.phone = phone
+                distantion.centerAdd = singelItem?.centerAddress ?? ""
+                distantion.centerNa = singelItem?.centerName ?? ""
+                distantion.center_Id = singelItem?.centerId ?? ""
             }
         }
     }

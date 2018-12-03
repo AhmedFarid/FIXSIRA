@@ -12,12 +12,12 @@ class reviewService: UIViewController {
 
     var singleItem: myorders?
     
-    @IBOutlet weak var carName: UILabel!
-    @IBOutlet weak var servicesType: UILabel!
-    @IBOutlet weak var data: UILabel!
-    @IBOutlet weak var prices: UILabel!
-    @IBOutlet weak var status: UILabel!
     
+    @IBOutlet weak var carName: UILabel!
+    @IBOutlet weak var serviceType: UILabel!
+    @IBOutlet weak var schedulDate: UILabel!
+    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var status: UILabel!
     @IBOutlet weak var commentTXT: UITextView!
     
     
@@ -33,10 +33,11 @@ class reviewService: UIViewController {
         super.viewDidLoad()
         
         carName.text = singleItem?.car_name
-        servicesType.text = singleItem?.name
-        data.text = singleItem?.schedule_date
-        prices.text = singleItem?.price
+        serviceType.text = singleItem?.services_type
+        schedulDate.text = singleItem?.schedule_date
+        price.text = singleItem?.price
         status.text = singleItem?.status
+        
     }
     
     

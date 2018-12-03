@@ -12,10 +12,10 @@ class serviceTypesVCs: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
 
     var carModels = [servicesType]()
     var servicetype = [servicestypes]()
-    var setlectServices = ["Mobile Service","Out Side"]
+    var setlectServices = ["Mobile Service","On Site"]
     
     var carModelId = 0
-    var serviceTypeId = 0
+    var serviceTypeId = ""
     var seleectServiceType = ""
     
     @IBOutlet weak var carModel: UIPickerView!
@@ -116,6 +116,7 @@ class serviceTypesVCs: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         sevice.carmodelId = carModelId
         sevice.typeId = serviceTypeId
         sevice.selectServiec = seleectServiceType
+        sevice.typeFix = seleectServiceType
     }
     
 }

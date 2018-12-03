@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0894560921A5C9660038F9AE /* API+banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894560821A5C9660038F9AE /* API+banner.swift */; };
+		0894560B21A5C97C0038F9AE /* bannerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894560A21A5C97C0038F9AE /* bannerData.swift */; };
+		0894560D21A5CD210038F9AE /* bannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894560C21A5CD210038F9AE /* bannerCell.swift */; };
 		6908D2BF21861BE900E4390C /* vendorServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6908D2BE21861BE800E4390C /* vendorServices.swift */; };
 		6908D2C121862FD200E4390C /* servicesVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6908D2C021862FD200E4390C /* servicesVendor.swift */; };
 		69109963216A8D9C00EEB30B /* sparParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69109962216A8D9C00EEB30B /* sparParts.swift */; };
@@ -65,6 +68,7 @@
 		699ACB9D2170CE0200B300EB /* pullCarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699ACB9C2170CE0200B300EB /* pullCarCell.swift */; };
 		69ABD0A12163A94B0041AE0A /* profileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ABD0A02163A94A0041AE0A /* profileVC.swift */; };
 		69ABD0A32163AB6F0041AE0A /* homeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ABD0A22163AB6E0041AE0A /* homeVC.swift */; };
+		69B414E221B56FAF009C034C /* reviewProdects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B414E121B56FAF009C034C /* reviewProdects.swift */; };
 		69D5E7842163B5FC00839584 /* cartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D5E7832163B5FB00839584 /* cartVC.swift */; };
 		69D5E7862163B6AE00839584 /* settingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D5E7852163B6AE00839584 /* settingsVC.swift */; };
 		69D5E7892163DA2700839584 /* pullcarVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D5E7882163DA2700839584 /* pullcarVc.swift */; };
@@ -84,10 +88,14 @@
 		69DF2582216A4B1A0031CA29 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DF2581216A4B1A0031CA29 /* Strings.swift */; };
 		69DF2584216A549F0031CA29 /* Cofig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DF2583216A549F0031CA29 /* Cofig.swift */; };
 		69DF2586216A5A6C0031CA29 /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DF2585216A5A6C0031CA29 /* helper.swift */; };
+		69F4D1A321AD762E0023B8DA /* prodectVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F4D1A221AD762E0023B8DA /* prodectVendor.swift */; };
 		9413E7F0BDCBED6B99EA0602 /* Pods_Fixsira.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266A0FA68DD71C6C362273F9 /* Pods_Fixsira.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0894560821A5C9660038F9AE /* API+banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+banner.swift"; sourceTree = "<group>"; };
+		0894560A21A5C97C0038F9AE /* bannerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bannerData.swift; sourceTree = "<group>"; };
+		0894560C21A5CD210038F9AE /* bannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bannerCell.swift; sourceTree = "<group>"; };
 		266A0FA68DD71C6C362273F9 /* Pods_Fixsira.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fixsira.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED9A996ABD140B742CBC50D /* Pods-Fixsira.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fixsira.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fixsira/Pods-Fixsira.release.xcconfig"; sourceTree = "<group>"; };
 		6908D2BE21861BE800E4390C /* vendorServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vendorServices.swift; sourceTree = "<group>"; };
@@ -150,6 +158,7 @@
 		699ACB9C2170CE0200B300EB /* pullCarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pullCarCell.swift; sourceTree = "<group>"; };
 		69ABD0A02163A94A0041AE0A /* profileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileVC.swift; sourceTree = "<group>"; };
 		69ABD0A22163AB6E0041AE0A /* homeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeVC.swift; sourceTree = "<group>"; };
+		69B414E121B56FAF009C034C /* reviewProdects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reviewProdects.swift; sourceTree = "<group>"; };
 		69D5E7832163B5FB00839584 /* cartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cartVC.swift; sourceTree = "<group>"; };
 		69D5E7852163B6AE00839584 /* settingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsVC.swift; sourceTree = "<group>"; };
 		69D5E7882163DA2700839584 /* pullcarVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pullcarVc.swift; sourceTree = "<group>"; };
@@ -169,6 +178,7 @@
 		69DF2581216A4B1A0031CA29 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		69DF2583216A549F0031CA29 /* Cofig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cofig.swift; sourceTree = "<group>"; };
 		69DF2585216A5A6C0031CA29 /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
+		69F4D1A221AD762E0023B8DA /* prodectVendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prodectVendor.swift; sourceTree = "<group>"; };
 		CEB8F2AA81A46B6712F86A5F /* Pods-Fixsira.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fixsira.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fixsira/Pods-Fixsira.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +206,8 @@
 				6920DD5F217A043800253325 /* myProdectOrderCell.swift */,
 				6920DD65217A212500253325 /* myProdectDetiles.swift */,
 				69859E122187407F002A9720 /* hoursDay.swift */,
+				0894560C21A5CD210038F9AE /* bannerCell.swift */,
+				69F4D1A221AD762E0023B8DA /* prodectVendor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -386,6 +398,7 @@
 				6920DD5D2179FF3C00253325 /* myProdectOrderVC.swift */,
 				6920DD61217A0E4300253325 /* reviewVendorProdectVC.swift */,
 				6920DD63217A204F00253325 /* myOrderDeatils.swift */,
+				69B414E121B56FAF009C034C /* reviewProdects.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -427,6 +440,7 @@
 				6942FC4F217C83CC00689E60 /* API+servicesTypecar.swift */,
 				6942FC55217C8F5400689E60 /* API+VendorProfile.swift */,
 				69859E1021873D36002A9720 /* API+Days.swift */,
+				0894560821A5C9660038F9AE /* API+banner.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -450,6 +464,7 @@
 				6942FC4D217C78D200689E60 /* servicesType.swift */,
 				6942FC53217C8DB100689E60 /* vendorProfile.swift */,
 				69859E0E21873BFA002A9720 /* workhoursssss.swift */,
+				0894560A21A5C97C0038F9AE /* bannerData.swift */,
 			);
 			path = APIData;
 			sourceTree = "<group>";
@@ -602,6 +617,8 @@
 				696A362B21734B62002C7C0E /* carMintDetCell.swift in Sources */,
 				69DA8CE02176017400074F80 /* reviewService.swift in Sources */,
 				698777A12164F7CD0014EACF /* carWishingVC.swift in Sources */,
+				0894560D21A5CD210038F9AE /* bannerCell.swift in Sources */,
+				69B414E221B56FAF009C034C /* reviewProdects.swift in Sources */,
 				69D89FE62174EBB70042586A /* API+profile.swift in Sources */,
 				6942FC54217C8DB100689E60 /* vendorProfile.swift in Sources */,
 				69D5E7842163B5FC00839584 /* cartVC.swift in Sources */,
@@ -624,6 +641,7 @@
 				6908D2BF21861BE900E4390C /* vendorServices.swift in Sources */,
 				6942FC4E217C78D200689E60 /* servicesType.swift in Sources */,
 				6920DD66217A212500253325 /* myProdectDetiles.swift in Sources */,
+				69F4D1A321AD762E0023B8DA /* prodectVendor.swift in Sources */,
 				6920DD60217A043900253325 /* myProdectOrderCell.swift in Sources */,
 				696A363321737E84002C7C0E /* cartCell.swift in Sources */,
 				69229195217890C300D35A45 /* BuyVC.swift in Sources */,
@@ -638,6 +656,7 @@
 				696A363521738055002C7C0E /* cartData.swift in Sources */,
 				698777A32164F8300014EACF /* carWishingVC2.swift in Sources */,
 				697335032172AF4700A4B2DF /* servicesDetails.swift in Sources */,
+				0894560921A5C9660038F9AE /* API+banner.swift in Sources */,
 				69ABD0A12163A94B0041AE0A /* profileVC.swift in Sources */,
 				6953343621636A62009E1227 /* AppDelegate.swift in Sources */,
 				69DF257E216A37480031CA29 /* showAlert.swift in Sources */,
@@ -668,6 +687,7 @@
 				69D89FEC217516F40042586A /* myordersCell.swift in Sources */,
 				69D5E7862163B6AE00839584 /* settingsVC.swift in Sources */,
 				69DF2584216A549F0031CA29 /* Cofig.swift in Sources */,
+				0894560B21A5C97C0038F9AE /* bannerData.swift in Sources */,
 				698777A72164F9BD0014EACF /* sparePartsVC.swift in Sources */,
 				697064C32172BADB00A59151 /* carMaintDetailsCell.swift in Sources */,
 				69D89FE42174AEF90042586A /* API+orders.swift in Sources */,

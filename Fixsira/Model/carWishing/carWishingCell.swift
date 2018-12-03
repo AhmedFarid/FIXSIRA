@@ -17,19 +17,20 @@ class carWishingCell: UITableViewCell {
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var telephone: UILabel!
     @IBOutlet weak var reate: UILabel!
+    @IBOutlet weak var distance: UILabel!
     
     
     func configuerCell(prodect: Services) {
         
-        vrndorName.text = prodect.vendor_name
-        name.text = prodect.name
-        address.text = prodect.address
-        phone.text = "\(prodect.price)"
-        telephone.text = "\(prodect.rate_average) Rate This"
-        reate.text = "\(prodect.rate_total)"
+        vrndorName.text = prodect.centerName
+        name.text = prodect.vendorName
+        address.text = prodect.centerAddress
+        //phone.text = "\(prodect.totalPrice)"
+        telephone.text = "\(prodect.total) Rate This"
+        reate.text = "\(prodect.rating)"
         
         wishImage.image = UIImage(named: "placeholder")
-        let s = ("http://fixsira.com/site\(prodect.user_photo_url)")
+        let s = ("http://fixsira.com/\(prodect.image)")
         let encodedLink = s.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let encodedURL = NSURL(string: encodedLink!)! as URL
         

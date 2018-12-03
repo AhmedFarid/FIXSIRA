@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class API_Days: NSObject {
 
-    class func Days(location_id: Int,completion: @escaping (_ error: Error?,_ sparParts: [workhoursssss]?)-> Void) {
+    class func Days(location_id: String,completion: @escaping (_ error: Error?,_ sparParts: [workhoursssss]?)-> Void) {
         let url = URLs.getDays
         let api_token = "11"
         let lang = "en"

@@ -28,4 +28,11 @@ class profileVC: UIViewController {
             self.email.text = email ?? ""
             }
         }
+    @IBAction func lan(_ sender: Any) {
     }
+    
+    @IBAction func logoutBtn(_ sender: Any) {
+        helper.dleteAPIToken()
+    }
+    
+}

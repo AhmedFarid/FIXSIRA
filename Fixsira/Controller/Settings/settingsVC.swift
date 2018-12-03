@@ -54,8 +54,12 @@ class settingsVC: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "suge", sender: orders[indexPath.row])
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        if orders[indexPath.row].status == "pending"{
+            print("no")
+        }else{
+            performSegue(withIdentifier: "suge", sender: orders[indexPath.row])
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -16,6 +16,7 @@ final class vendoAnnoutation: NSObject, MKAnnotation {
     var title: String?
     var subtitle: String?
     
+    
     init(coordinate: CLLocationCoordinate2D, title: String?, subtitle: String) {
         self.coordinate = coordinate
         self.title = title
@@ -45,10 +46,12 @@ class carWishingVC3: UIViewController {
     var ima = ""
     var rates = ""
     var carmodelId = 0
-    var typeId = 0
-    var locationId = 0
+    var typeId = ""
+    var locationId = ""
     var vendorID = 0
     var prices = ""
+    var typeFix = ""
+    var services_id = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,14 +87,20 @@ class carWishingVC3: UIViewController {
         self.performSegue(withIdentifier: "suge", sender: "car_washing")
     }
     
-    
-    @IBAction func phoneCall(_ sender: Any) {
+    @IBAction func workHoursBTN(_ sender: Any) {
+        self.performSegue(withIdentifier: "workHours", sender: nil)
+    }
+    @IBAction func phoneCallBtn(_ sender: Any) {
     }
     
-    @IBAction func workHours(_ sender: Any) {
-    }
+//    @IBAction func phoneCall(_ sender: Any) {
+//    }
+    
+//    @IBAction func workHours(_ sender: Any) {
+//    }
     
     @IBAction func vendorBrodect(_ sender: Any) {
+        self.performSegue(withIdentifier: "showProdects", sender: nil)
     }
     
     @IBAction func vendorServices(_ sender: Any) {
@@ -101,16 +110,20 @@ class carWishingVC3: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let orderType = segue.destination as? orderServices {
             orderType.type = sender as! String
+            orderType.typeFix = typeFix
             orderType.carmodelId = carmodelId
             orderType.typeId = typeId
             orderType.locationId = locationId
+            orderType.services_id = services_id
         }else if let prodectsVendor = segue.destination as? vendorServices {
             prodectsVendor.vendorId = singelItems?.vendor_id ?? ""
-            prodectsVendor.type = "car_washing"
+            prodectsVendor.type = "car_maintenance"
+        }else if let vendorPeodects = segue.destination as? vendorBrodect {
+            vendorPeodects.vendorId = singelItems?.vendor_id ?? ""
+        }else if let vendorhours = segue.destination as? workhorusVC {
+            vendorhours.locationId = singelItems?.vendor_id ?? ""
         }
-}
-    
-    
+    }
 }
 
 extension carWishingVC3: MKMapViewDelegate {

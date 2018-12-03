@@ -14,7 +14,7 @@ class galryCell: UICollectionViewCell {
     
     func configuerCell(prodect: SparPartGalrys) {
         image.image = UIImage(named: "placeholder")
-        let s = ("http://fixsira.com/site\(prodect.url)")
+        let s = ("http://fixsira.com/\(prodect.url)")
         let encodedLink = s.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let encodedURL = NSURL(string: encodedLink!)! as URL
         

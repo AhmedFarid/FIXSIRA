@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class API_VendorProfile: NSObject {
     
-    class func servicesTypes(location_id: Int,completion: @escaping (_ error: Error?,_ sparParts: [vendorProfile]?)-> Void) {
+    class func servicesTypes(location_id: String,completion: @escaping (_ error: Error?,_ sparParts: [vendorProfile]?)-> Void) {
         let url = URLs.getVendorProfile
         let api_token = "11"
         let lang = "en"

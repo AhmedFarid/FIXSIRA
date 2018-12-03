@@ -12,6 +12,10 @@ class myProdectOrderVC: UIViewController ,UITableViewDelegate, UITableViewDataSo
 
     
     var orders = [myordersProdect]()
+    var id = 0
+    var order_currency = ""
+    var orderTotla = ""
+    var orderDate = ""
     
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
@@ -47,16 +51,17 @@ class myProdectOrderVC: UIViewController ,UITableViewDelegate, UITableViewDataSo
             cell.configuerCell(prodect: cells)
             
             cell.reviewBTN = {
-                self.performSegue(withIdentifier: "suge2", sender: cells._order_currency)
-                
-                func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                    guard let reviewVC = segue.destination as? reviewVendorProdectVC else {return}
-                    reviewVC.ids = cells.id
-                    reviewVC.orderCurrency = sender as! String
-                    reviewVC.orderDate = cells._order_date
-                    reviewVC.orderTotla = cells._order_total
+                self.id = cells.id
+                self.order_currency = cells._order_currency
+                self.orderDate = cells._order_date
+                self.orderTotla = cells._order_total
+                if cells._order_status == "on-hold"{
+                    //print("no")
+                    
+                }else {
+                    self.performSegue(withIdentifier: "suge2", sender: nil)
                 }
-            }
+                }
             return cell
         }else {
             return myProdectOrderCell()
@@ -72,6 +77,11 @@ class myProdectOrderVC: UIViewController ,UITableViewDelegate, UITableViewDataSo
             if let prodact = sender as? myordersProdect {
                 distantion.singleItem = prodact
             }
+        }else if let  reviewVC = segue.destination as? reviewVendorProdectVC {
+            reviewVC.ids = id
+            reviewVC.orderCurrency = order_currency
+            reviewVC.orderDate = orderDate
+            reviewVC.orderTotla = orderTotla
         }
     }
 }

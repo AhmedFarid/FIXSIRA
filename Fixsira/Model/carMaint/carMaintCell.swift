@@ -23,16 +23,16 @@ class carMaintCell: UITableViewCell {
     
     func configuerCell(prodect: Services) {
         
-        vrndorName.text = prodect.vendor_name
-        name.text = prodect.name
-        address.text = prodect.address
-        phone.text = "\(prodect.price)"
-        telephone.text = prodect.telephone
-        reate.text = "\(prodect.rate_total)"
-        rateAvg.text = "\(prodect.rate_average) Rate This"
+        vrndorName.text = prodect.centerName
+        name.text = prodect.vendorName
+        address.text = prodect.centerAddress
+        //phone.text = "\(prodect.totalPrice)"
+        //telephone.text = prodect.centerPhone
+        reate.text = "\(prodect.rating)"
+        rateAvg.text = "\(prodect.total) Rate This"
         
         wishImage.image = UIImage(named: "placeholder")
-        let s = ("http://fixsira.com/site\(prodect.user_photo_url)")
+        let s = ("http://fixsira.com/\(prodect.image)")
         let encodedLink = s.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let encodedURL = NSURL(string: encodedLink!)! as URL
         

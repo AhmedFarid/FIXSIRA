@@ -16,19 +16,20 @@ class pullCarCell: UITableViewCell {
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var reate: UILabel!
     @IBOutlet weak var rateAvg: UILabel!
+    @IBOutlet weak var distance: UILabel!
     
     
-    func configuerCell(prodect: Services) {
+    func configuerCell(prodect: PullCar) {
         
-        vrndorName.text = prodect.vendor_name
-        name.text = prodect.name
-        address.text = prodect.address
-        rateAvg.text = "\(prodect.rate_average) Rate This"
+        vrndorName.text = prodect.centerName
+        name.text = prodect.pullName
+        address.text = prodect.centerAddress
+        rateAvg.text = "\(prodect.rating) Rate This"
         //telephone.text = prodect.telephone
-        reate.text = "\(prodect.rate_total)"
+        reate.text = "\(prodect.total)"
         
         wishImage.image = UIImage(named: "placeholder")
-        let s = ("http://fixsira.com/site\(prodect.user_photo_url)")
+        let s = ("http://fixsira.com/\(prodect.pullImage)")
         let encodedLink = s.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let encodedURL = NSURL(string: encodedLink!)! as URL
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class sparePartsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class sparePartsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var searchTxt: UITextField!
@@ -146,7 +146,17 @@ class sparePartsVC: UIViewController, UICollectionViewDelegate, UICollectionView
 //                self.last_page = last_page
             }
         }
-    }	
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenWidth = UIScreen.main.bounds.width
+        let width = screenWidth
+        var hight = screenWidth
+        
+        
+        hight = hight > 164 ? 164 : hight
+        
+        return CGSize.init(width: width, height: hight)
+    }
 }
 
 

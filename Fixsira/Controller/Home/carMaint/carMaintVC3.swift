@@ -47,10 +47,12 @@ class carMaintVC3: UIViewController {
     var ima = ""
     var rates = ""
     var carmodelId = 0
-    var typeId = 0
-    var locationId = 0
+    var typeId = ""
+    var locationId = ""
     var vendorID = 0
     var prices = ""
+    var typeFix = ""
+    var services_id = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,13 +92,18 @@ class carMaintVC3: UIViewController {
     }
     
     
-    
-    @IBAction func phoneCall(_ sender: Any) {
-    }
-    
-    @IBAction func workHours(_ sender: Any) {
+    @IBAction func workHoursBtn(_ sender: Any) {
         self.performSegue(withIdentifier: "workHours", sender: nil)
     }
+    @IBAction func phonecallBtn(_ sender: Any) {
+    }
+    
+//    @IBAction func phoneCall(_ sender: Any) {
+//    }
+    
+//    @IBAction func workHours(_ sender: Any) {
+//        self.performSegue(withIdentifier: "workHours", sender: nil)
+//    }
     
     
     @IBAction func vendorProdect(_ sender: Any) {
@@ -110,16 +117,18 @@ class carMaintVC3: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let orderType = segue.destination as? orderServices {
             orderType.type = sender as! String
+            orderType.typeFix = typeFix
             orderType.carmodelId = carmodelId
             orderType.typeId = typeId
             orderType.locationId = locationId
+            orderType.services_id = services_id
         }else if let prodectsVendor = segue.destination as? vendorServices {
             prodectsVendor.vendorId = singelItems?.vendor_id ?? ""
             prodectsVendor.type = "car_maintenance"
         }else if let vendorPeodects = segue.destination as? vendorBrodect {
             vendorPeodects.vendorId = singelItems?.vendor_id ?? ""
         }else if let vendorhours = segue.destination as? workhorusVC {
-            vendorhours.locationId = singelItems?.id ?? 19
+            vendorhours.locationId = singelItems?.vendor_id ?? ""
         }
     }
 }

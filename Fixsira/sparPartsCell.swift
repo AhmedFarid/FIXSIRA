@@ -16,11 +16,21 @@ class sparPartsCell: UICollectionViewCell {
     @IBOutlet weak var prodectImage: UIImageView!
     @IBOutlet weak var prodectName: UILabel!
     @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var Discount: UILabel!
+    @IBOutlet weak var inStoke: UILabel!
+    @IBOutlet weak var rateAvg: UILabel!
+    @IBOutlet weak var instoke: UILabel!
+    @IBOutlet weak var rate: UILabel!
+    @IBOutlet weak var totalrate: UILabel!
     
     
     func configuerCell(prodect: SparParts) {
+        totalrate.text = "\(prodect.rate_total)"
+        rate.text = "\(prodect.rate_total)"
+        instoke.text = prodect.stock_availability
         prodectName.text = prodect.title
-        price.text = prodect.sale_price
+        Discount.text = "Discount: \(prodect.sale_price)"
+        price.text = "Price: \(prodect.regular_price)"
         prodectImage.image = UIImage(named: "placeholder")
         //self.prodectImage.image = placeholde
 //        Alamofire.request("http://fixsira.com/site"+prodect.image_url).response { response in
@@ -30,7 +40,7 @@ class sparPartsCell: UICollectionViewCell {
 //        }
         
         
-        let s = ("http://fixsira.com/site\(prodect.image_url)")
+        let s = ("http://fixsira.com/\(prodect.image_url)")
         let encodedLink = s.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let encodedURL = NSURL(string: encodedLink!)! as URL
         

@@ -24,7 +24,7 @@ class API: NSObject {
             "cat_id":cat_id,
             "vendor_id": vendor_Id
         ]
-        
+        print(parameters)
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil) .responseJSON  { response in
             
             

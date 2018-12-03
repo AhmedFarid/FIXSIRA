@@ -12,44 +12,48 @@ import SwiftyJSON
 
 class SparParts: NSObject {
     
-    var id: String
     var author_id: String
-    var content: String
-    var title: String
     var slug: String
+    var id: String
+    var content_ar: String
+    var title_ar: String
     var status: String
-    var sku: String
-    var regular_price: String
+    var author_name: String
     var sale_price: String
     var price: String
-    var stock_qty: String
-    var stock_availability: String
-    var type: String
     var image_url: String
-    var created_at: String
-    var updated_at: String
+    var stock_qty: String
+    var rate_total: Int
+    var type: String
+    var stock_availability: String
+    var content: String
+    var title: String
+    var regular_price: String
+    var rate_average: Int
     
     init?(dict: [String: JSON]){
         
-        guard let id = dict["id"]?.string, let author_id = dict["author_id"]?.string, let content = dict["content"]?.string, let title = dict["title"]?.string, let slug = dict["slug"]?.string, let status = dict["status"]?.string, let sku = dict["sku"]?.string, let regular_price = dict["regular_price"]?.string, let sale_price = dict["sale_price"]?.string, let price = dict["price"]?.string, let stock_qty = dict["stock_qty"]?.string, let stock_availability = dict["stock_availability"]?.string, let type = dict["type"]?.string, let image_url = dict["image_url"]?.string, let created_at = dict["created_at"]?.string, let updated_at = dict["updated_at"]?.string else {return nil}
+        guard let author_id = dict["author_id"]?.string, let slug = dict["slug"]?.string, let id = dict["id"]?.string, let content_ar = dict["content_ar"]?.string, let title_ar = dict["title_ar"]?.string, let status = dict["status"]?.string, let author_name = dict["author_name"]?.string, let sale_price = dict["sale_price"]?.string, let price = dict["price"]?.string, let image_url = dict["image_url"]?.string, let stock_qty = dict["stock_qty"]?.string, let rate_total = dict["rate_total"]?.int, let type = dict["type"]?.string, let stock_availability = dict["stock_availability"]?.string, let content = dict["content"]?.string, let title = dict["title"]?.string , let regular_price = dict["regular_price"]?.string, let rate_average = dict["rate_average"]?.int else {return nil}
         
         
-        self.id = id
         self.author_id = author_id
-        self.content = content
-        self.title = title
         self.slug = slug
+        self.id = id
+        self.content_ar = content_ar
+        self.title_ar = title_ar
         self.status = status
-        self.sku = sku
-        self.regular_price = regular_price
+        self.author_name = author_name
         self.sale_price = sale_price
         self.price = price
-        self.stock_qty = stock_qty
-        self.stock_availability = stock_availability
-        self.type = type
         self.image_url = image_url
-        self.created_at = created_at
-        self.updated_at = updated_at
+        self.stock_qty = stock_qty
+        self.rate_total = rate_total
+        self.type = type
+        self.stock_availability = stock_availability
+        self.content = content
+        self.title = title
+        self.regular_price = regular_price
+        self.rate_average = rate_average
         
     }
 }

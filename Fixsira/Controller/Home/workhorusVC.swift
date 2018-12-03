@@ -13,7 +13,7 @@ class workhorusVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBOutlet weak var tabelview: UITableView!
     var workhour = [workhoursssss]()
-    var locationId = 0
+    var locationId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

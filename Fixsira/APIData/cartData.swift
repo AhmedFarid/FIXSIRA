@@ -27,10 +27,11 @@ class cartData: NSObject {
     var title: String
     var sale_price: String
     var image_url: String
+    var vendor_id: String
     
     init?(dict: [String: JSON]){	
         
-        guard let id = dict["id"]?.int, let user_id = dict["user_id"]?.string, let products_id = dict["products_id"]?.string, let quantity = dict["quantity"]?.string, let unit_price = dict["price"]?.string, let final_price = dict["order_price"]?.string,  let is_order = dict["is_order"]?.string, let created_at = dict["created_at"]?.string, let updated_at = dict["updated_at"]?.string, let content = dict["content"]?.string, let vendor_name = dict["vendor_name"]?.string, let title = dict["title"]?.string, let sale_price = dict["sale_price"]?.string, let image_url = dict["image_url"]?.string else {return nil}
+        guard let id = dict["id"]?.int, let user_id = dict["user_id"]?.string, let products_id = dict["products_id"]?.string, let quantity = dict["quantity"]?.string, let unit_price = dict["price"]?.string, let final_price = dict["order_price"]?.string,  let is_order = dict["is_order"]?.string, let created_at = dict["created_at"]?.string, let updated_at = dict["updated_at"]?.string, let content = dict["content"]?.string, let vendor_name = dict["vendor_name"]?.string, let title = dict["title"]?.string, let sale_price = dict["sale_price"]?.string, let image_url = dict["image_url"]?.string,let vendor_id = dict["vendor_id"]?.string else {return nil}
         
         self.id = id
         self.user_id = user_id
@@ -47,6 +48,7 @@ class cartData: NSObject {
         self.title = title
         self.sale_price = sale_price
         self.image_url = image_url
+        self.vendor_id = vendor_id
     }
 }
 

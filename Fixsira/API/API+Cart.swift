@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class API_Cart: NSObject {
     
-    class func addToCart(products_id: String, completion: @escaping (_ error: Error?, _ success: Bool)->Void) {
+    class func addToCart(vendor_id: String ,products_id: String, completion: @escaping (_ error: Error?, _ success: Bool)->Void) {
         
         let apiToken = "11"
         let lang = "en"
@@ -28,6 +28,7 @@ class API_Cart: NSObject {
             "lang": lang,
             "quantity": quantity,
             "products_id": products_id,
+            "vendor_id": vendor_id,
             "user_token": userToken
         ]
         print(parameters)

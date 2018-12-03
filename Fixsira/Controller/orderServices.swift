@@ -18,12 +18,16 @@ class orderServices: UIViewController , CLLocationManagerDelegate{
     @IBOutlet weak var date: UITextField!
     
     var carmodelId = 0
-    var typeId = 0
+    var typeId = ""
     var type = ""
-    var locationId = 0
+    var locationId = ""
     var lat = 0.0
     var long = 0.0
     var orderId = 0
+    var type_services = ""
+    var services_id = ""
+    var typeFix = "Mobile Service"
+    
     
     
     private var datePiker: UIDatePicker?
@@ -32,7 +36,7 @@ class orderServices: UIViewController , CLLocationManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(lat)
         locationManger.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             locationManger.delegate = self
@@ -123,16 +127,17 @@ class orderServices: UIViewController , CLLocationManagerDelegate{
             return
         }
         
-        API_orders.orderService(type_id: typeId , car_model_id: carmodelId , location_id: locationId , services_Type: type, lat: lat, long: long, phone: phone.text ?? "", car_name: carName.text ?? "", car_model: carModel.text ?? "", car_model_year: carModelYear.text ?? "", date: date.text ?? "") { (error: Error?, success: Bool, orderId) in
+        API_orders.orderService(type_services: typeFix, services_id: services_id, type_id: typeId , car_model_id: carmodelId , location_id: locationId , services_Type: type, lat: lat, long: long, phone: phone.text ?? "", car_name: carName.text ?? "", car_model: carModel.text ?? "", car_model_year: carModelYear.text ?? "", date: date.text ?? "") { (error: Error?, success: Bool, orderId,meessage,ordarPrice) in
             if success {
                 self.orderId = orderId ?? 0
                 print("0000\(self.orderId)")
-                self.showAlert(title: "Order Success", message: "your order Id is \(self.orderId)")
+                self.showAlert(title: "\(meessage ?? "Order Fail")", message: "your order Id is \(self.orderId)\n Price: \(ordarPrice ?? 0)")
             }else{
                 //self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
+                self.showAlert(title: "Order Fail", message: "Check Network")
             }
             
-            self.showAlert(title: "Order Success", message: "your order Id is \(self.orderId)")
+            self.showAlert(title: "Order Fail", message: "Check Network")
         }
     }
 }
