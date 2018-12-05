@@ -30,7 +30,7 @@ class carWishingCell: UITableViewCell {
         reate.text = "\(prodect.rating)"
         
         wishImage.image = UIImage(named: "placeholder")
-        let s = ("http://fixsira.com/\(prodect.image)")
+        let s = ("\(URLs.main)\(prodect.image)")
         let encodedLink = s.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let encodedURL = NSURL(string: encodedLink!)! as URL
         

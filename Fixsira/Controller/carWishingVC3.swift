@@ -91,6 +91,9 @@ class carWishingVC3: UIViewController {
         self.performSegue(withIdentifier: "workHours", sender: nil)
     }
     @IBAction func phoneCallBtn(_ sender: Any) {
+        if let url = URL(string:"tel://\(singelItems?.phone ?? "")"), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
     
 //    @IBAction func phoneCall(_ sender: Any) {

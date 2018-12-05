@@ -12,11 +12,10 @@ import SwiftyJSON
 
 class API_Cart: NSObject {
     
-    class func addToCart(vendor_id: String ,products_id: String, completion: @escaping (_ error: Error?, _ success: Bool)->Void) {
+    class func addToCart(quanti: Int, vendor_id: String ,products_id: String, completion: @escaping (_ error: Error?, _ success: Bool)->Void) {
         
         let apiToken = "11"
         let lang = "en"
-        let quantity = "1"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,false)
             return
@@ -26,11 +25,11 @@ class API_Cart: NSObject {
         let parameters = [
             "api_token": apiToken,
             "lang": lang,
-            "quantity": quantity,
+            "quantity": quanti,
             "products_id": products_id,
             "vendor_id": vendor_id,
             "user_token": userToken
-        ]
+            ] as [String : Any]
         print(parameters)
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil) .responseJSON { response in
             switch response.result

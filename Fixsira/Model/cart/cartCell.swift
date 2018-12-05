@@ -30,7 +30,7 @@ class cartCell: UITableViewCell {
         quantity.text = prodect.quantity
         
         partImage.image = UIImage(named: "placeholder")
-        let s = ("http://fixsira.com/\(prodect.image_url)")
+        let s = ("\(URLs.main)\(prodect.image_url)")
         let encodedLink = s.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let encodedURL = NSURL(string: encodedLink!)! as URL
         

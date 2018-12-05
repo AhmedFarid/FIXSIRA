@@ -30,8 +30,15 @@ class SparParts: NSObject {
     var title: String
     var regular_price: String
     var rate_average: Int
+    var auther_phone: String
     
     init?(dict: [String: JSON]){
+        
+        if  let auther_phone = dict["author_phone"]?.string {
+            self.auther_phone = auther_phone
+        }else{
+            self.auther_phone = ""
+        }
         
         guard let author_id = dict["author_id"]?.string, let slug = dict["slug"]?.string, let id = dict["id"]?.string, let content_ar = dict["content_ar"]?.string, let title_ar = dict["title_ar"]?.string, let status = dict["status"]?.string, let author_name = dict["author_name"]?.string, let sale_price = dict["sale_price"]?.string, let price = dict["price"]?.string, let image_url = dict["image_url"]?.string, let stock_qty = dict["stock_qty"]?.string, let rate_total = dict["rate_total"]?.int, let type = dict["type"]?.string, let stock_availability = dict["stock_availability"]?.string, let content = dict["content"]?.string, let title = dict["title"]?.string , let regular_price = dict["regular_price"]?.string, let rate_average = dict["rate_average"]?.int else {return nil}
         

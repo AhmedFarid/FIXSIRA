@@ -13,6 +13,7 @@ class sparePartsVC2: UIViewController,UICollectionViewDelegate ,UICollectionView
     var singelItem: SparParts?
     //var singleItemGalry: SparPartGalrys?
     var sparpartGalrys = [SparPartGalrys]()
+    var qunted = 1
     
     @IBOutlet weak var stokAvaiTXT: UILabel!
     @IBOutlet weak var Detiles: UILabel!
@@ -20,6 +21,8 @@ class sparePartsVC2: UIViewController,UICollectionViewDelegate ,UICollectionView
     @IBOutlet weak var partnameTXT: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet weak var qunte: UILabel!
+    @IBOutlet weak var deletOUt: roundedButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,8 @@ class sparePartsVC2: UIViewController,UICollectionViewDelegate ,UICollectionView
         collection.dataSource = self
         
         handleRefreshGalry()
+        
+        self.qunte.text = "\(qunted)"
         
         self.navigationItem.title = singelItem?.title
         stokAvaiTXT.text = singelItem?.stock_availability
@@ -75,9 +80,29 @@ class sparePartsVC2: UIViewController,UICollectionViewDelegate ,UICollectionView
         }
         
     }
+    @IBAction func callBTN(_ sender: Any) {
+        if let url = URL(string:"tel://\(singelItem?.auther_phone ?? "")"), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @IBAction func addBtnQun(_ sender: Any) {
+        qunted =  qunted + 1
+        deletOUt.isHidden = false
+        self.qunte.text = "\(qunted)"
+        
+    }
+    
+    @IBAction func deletButnQun(_ sender: Any) {
+        qunted = qunted - 1
+        self.qunte.text = "\(qunted)"
+        if qunted == 0 {
+            deletOUt.isHidden = true
+        }
+    }
     
     @IBAction func addToCart(_ sender: Any) {
-        API_Cart.addToCart(vendor_id: singelItem?.author_id ?? "", products_id: singelItem?.id ?? "") { (error: Error?, success: Bool) in
+        API_Cart.addToCart(quanti: qunted , vendor_id: singelItem?.author_id ?? "", products_id: singelItem?.id ?? "") { (error: Error?, success: Bool) in
             if success {
                 self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order")
             }else{
