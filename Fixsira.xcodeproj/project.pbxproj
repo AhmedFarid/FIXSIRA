@@ -204,6 +204,8 @@
 		69DF2585216A5A6C0031CA29 /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
 		69F4D1A221AD762E0023B8DA /* prodectVendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prodectVendor.swift; sourceTree = "<group>"; };
 		69FE08FD21C6A76C00194822 /* changePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changePasswordVC.swift; sourceTree = "<group>"; };
+		75950FA5222D55B100E9C4D9 /* Fixsira.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fixsira.entitlements; sourceTree = "<group>"; };
+		75950FA6222D575300E9C4D9 /* Fixsira-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fixsira-Bridging-Header.h"; sourceTree = "<group>"; };
 		75B70D94222BEC1B000D20ED /* myorderHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myorderHomeVC.swift; sourceTree = "<group>"; };
 		CEB8F2AA81A46B6712F86A5F /* Pods-Fixsira.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fixsira.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fixsira/Pods-Fixsira.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -261,6 +263,7 @@
 		6953343421636A62009E1227 /* Fixsira */ = {
 			isa = PBXGroup;
 			children = (
+				75950FA5222D55B100E9C4D9 /* Fixsira.entitlements */,
 				6953343521636A62009E1227 /* AppDelegate.swift */,
 				6953343921636A62009E1227 /* Main.storyboard */,
 				6953343E21636A6F009E1227 /* LaunchScreen.storyboard */,
@@ -275,6 +278,7 @@
 				69E43982216A2F0A0054AD56 /* API */,
 				6953344A21637404009E1227 /* View */,
 				695334472163728C009E1227 /* Controller */,
+				75950FA6222D575300E9C4D9 /* Fixsira-Bridging-Header.h */,
 			);
 			path = Fixsira;
 			sourceTree = "<group>";
@@ -569,6 +573,15 @@
 				TargetAttributes = {
 					6953343121636A62009E1227 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -917,6 +930,8 @@
 			baseConfigurationReference = CEB8F2AA81A46B6712F86A5F /* Pods-Fixsira.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Fixsira/Fixsira.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4Z34DQ34UQ;
@@ -947,6 +962,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.faridoE-Bakers.Fixsira";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Bakers Fixsira";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fixsira/Fixsira-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -957,6 +974,8 @@
 			baseConfigurationReference = 4ED9A996ABD140B742CBC50D /* Pods-Fixsira.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Fixsira/Fixsira.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4Z34DQ34UQ;
@@ -987,6 +1006,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.faridoE-Bakers.Fixsira";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Bakers Fixsira";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fixsira/Fixsira-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

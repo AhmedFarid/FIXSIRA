@@ -15,6 +15,6 @@ target 'Fixsira' do
   pod 'IQKeyboardManagerSwift'
   pod 'FBSDKLoginKit'
   pod 'FBSDKCoreKit'
-     
+  pod 'OneSignal'  
 
 end

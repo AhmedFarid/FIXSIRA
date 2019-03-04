@@ -12,6 +12,44 @@ import SwiftyJSON
 
 class API_Login: NSObject {
     
+    class func notifacation(player_ids: String, completion: @escaping (_ error: Error?, _ success: Bool, _ message: String?)->Void) {
+        
+        let url = URLs.playerIds
+        guard let userToken = helper.getAPIToken() else {
+            completion(nil,false,nil)
+            return
+        }
+        let parameters = [
+            "player_ids": player_ids,
+            "user_token": userToken
+        ]
+        print(parameters)
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil) .responseJSON { response in
+            switch response.result
+            {
+            case .failure(let error):
+                completion(error, false, nil)
+                print(error)
+                //self.showAlert(title: "Error", message: "\(error)")
+                
+            case .success(let value):
+                let json = JSON(value)
+                print(value)
+                if let user_token = json["data"]["user_token"].string {
+                    print("user token \(user_token)")
+                    helper.saveAPIToken(token: user_token)
+                    completion(nil, true, nil)
+                }else {
+                    let message = json["data"]["message"].string
+                    print(message ?? "no")
+                    completion(nil, true, message)
+                }
+                
+            }
+        }
+        
+    }
+    
     class func login(email: String, password: String, completion: @escaping (_ error: Error?, _ success: Bool, _ message: String?)->Void) {
         
         let apiToken = "123asd"

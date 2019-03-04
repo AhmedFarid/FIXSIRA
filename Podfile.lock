@@ -12,6 +12,7 @@ PODS:
     - FBSDKCoreKit
   - IQKeyboardManagerSwift (6.2.0)
   - Kingfisher (4.1.0)
+  - OneSignal (2.9.5)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - IQKeyboardManagerSwift
   - Kingfisher
+  - OneSignal
   - SwiftyJSON
 
 SPEC REPOS:
@@ -30,6 +32,7 @@ SPEC REPOS:
     - FBSDKLoginKit
     - IQKeyboardManagerSwift
     - Kingfisher
+    - OneSignal
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -39,8 +42,9 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: 7a1e411d46acc8834588eca437daf34de42e1d52
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   Kingfisher: f14df8cbe576bf55f211fa589e9869bceb4ea87d
+  OneSignal: ccdeb961882f8668305e5b694e2cb7cb325fc907
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 45a3867801f7734076b8d5130af80b76055e268c
+PODFILE CHECKSUM: 55826e2983abe582c52232622109c1240729cba5
 
 COCOAPODS: 1.5.2

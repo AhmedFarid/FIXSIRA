@@ -12,6 +12,8 @@ struct URLs {
     
     static let main = "https://fixsira.com/api/"
     
+    static let playerIds = main + "playerIds"
+    
     static let signupMobileFacebook = main + "signupMobileFacebook"
     
     static let banner = main + "banner"
