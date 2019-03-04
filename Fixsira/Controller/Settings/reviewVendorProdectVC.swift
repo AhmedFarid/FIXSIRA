@@ -95,7 +95,9 @@ class reviewVendorProdectVC: UIViewController {
     @IBAction func revbtn(_ sender: Any) {
         
         guard let comment = commentTXT.text, !comment.isEmpty else {
-            self.showAlert(title: "Review Filed", message: "enter Any comment")
+            let title = NSLocalizedString("Review Filed", comment: "Cart")
+            let message = NSLocalizedString("enter Any comment", comment: "Cart")
+            self.showAlert(title: title, message: message)
             return
         }
         
@@ -105,7 +107,9 @@ class reviewVendorProdectVC: UIViewController {
             }else{
 
             }
-            self.showAlert(title: "Thanks For Review", message: "Thanks For Make Our App Batter")
+            let title = NSLocalizedString("Thanks For Review", comment: "Cart")
+            let message = NSLocalizedString("Thanks For Make Our App Batter", comment: "Cart")
+            self.showAlert(title: title, message: message)
         }
     }
 }

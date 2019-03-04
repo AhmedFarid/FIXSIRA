@@ -33,8 +33,8 @@ class sparePartsVC2: UIViewController,UICollectionViewDelegate ,UICollectionView
         handleRefreshGalry()
         
         self.qunte.text = "\(qunted)"
-        
-        self.navigationItem.title = singelItem?.title
+//        
+//        self.navigationItem.title = singelItem?.title
         stokAvaiTXT.text = singelItem?.stock_availability
         Detiles.text = singelItem?.content
         priceTXT.text = singelItem?.sale_price
@@ -102,14 +102,36 @@ class sparePartsVC2: UIViewController,UICollectionViewDelegate ,UICollectionView
     }
     
     @IBAction func addToCart(_ sender: Any) {
-        API_Cart.addToCart(quanti: qunted , vendor_id: singelItem?.author_id ?? "", products_id: singelItem?.id ?? "") { (error: Error?, success: Bool) in
+        API_Cart.countCart { (error: Error?, Success, count) in
+            print("mmmmm\(count ?? 0)")
+            let Cart = NSLocalizedString("Cart", comment: "Cart")
+            self.tabBarController?.tabBar.items?[2].title = "\(Cart) \((count ?? 0))"
+            let title = NSLocalizedString("Add To Cart Success", comment: "Add To Cart Success")
+            let message = NSLocalizedString("Go to cart to finsh your order ", comment: "Go to cart to finsh your order ")
+            
+            self.showAlert(title: title, message: message)
+            
+            API_Cart.addToCart(quanti: self.qunted , vendor_id: self.singelItem?.author_id ?? "", products_id: self.singelItem?.id ?? "") { (error: Error?, success: Bool) in
             if success {
-                self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order")
+                let title = NSLocalizedString("Add To Cart Success", comment: "Add To Cart Success")
+                let message = NSLocalizedString("Go to cart to finsh your order ", comment: "Go to cart to finsh your order ")
+                self.showAlert(title: title, message: message)
             }else{
-                self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
+                let title = NSLocalizedString("Add To Cart Success", comment: "Add To Cart Success")
+                let message = NSLocalizedString("Go to cart to finsh your order ", comment: "Go to cart to finsh your order ")
+                self.showAlert(title: title, message: message)
             }
-            //self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
+            }
         }
-        //self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let distantion = segue.destination as? comenntsVc{
+                distantion.id = singelItem?.id ?? ""
+                //distantion.singelIt = sparpartGalry
+        }
     }
 }
+

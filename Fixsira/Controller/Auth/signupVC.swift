@@ -18,47 +18,80 @@ class signupVC: UIViewController {
     @IBOutlet weak var email: palceHolderColor!
     @IBOutlet weak var password: palceHolderColor!
     @IBOutlet weak var passwordComfer: palceHolderColor!
+    @IBOutlet weak var carYear: palceHolderColor!
+    @IBOutlet weak var carModel: palceHolderColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func signupButton(_ sender: Any) {
+        
+        guard let carYear = carYear.text, !carYear.isEmpty else {
+            let messages = NSLocalizedString("enter car Year", comment: "hhhh")
+            let title = NSLocalizedString("Register Filed", comment: "hhhh")
+            self.showAlert(title: title, message: messages)
+            return
+        }
+        
+        guard let carModel = carModel.text, !carModel.isEmpty else {
+            let messages = NSLocalizedString("enter car Model", comment: "hhhh")
+            let title = NSLocalizedString("Register Filed", comment: "hhhh")
+            self.showAlert(title: title, message: messages)
+            return
+        }
+        
         guard let frName = frName.text, !frName.isEmpty else {
-            self.showAlert(title: "Register Filed", message: "enter first name")
+            let messages = NSLocalizedString("enter first name", comment: "hhhh")
+            let title = NSLocalizedString("Register Filed", comment: "hhhh")
+            self.showAlert(title: title, message: messages)
             return
         }
         guard let lsName = lsName.text, !lsName.isEmpty else {
-            self.showAlert(title: "Register Filed", message: "enter last name")
+            let messages = NSLocalizedString("enter last name", comment: "hhhh")
+            let title = NSLocalizedString("Register Filed", comment: "hhhh")
+            self.showAlert(title: title, message: messages)
             return
         }
         guard let phone = phone.text, !phone.isEmpty else {
-            self.showAlert(title: "Register Filed", message: "enter phone")
+            let messages = NSLocalizedString("enter phone", comment: "hhhh")
+            let title = NSLocalizedString("Register Filed", comment: "hhhh")
+            self.showAlert(title: title, message: messages)
             return
         }
         guard let email = email.text?.trimmed, !email.isEmpty else {
-            self.showAlert(title: "Register Filed", message: "enter email")
+            let messages = NSLocalizedString("enter email", comment: "hhhh")
+            let title = NSLocalizedString("Register Filed", comment: "hhhh")
+            self.showAlert(title: title, message: messages)
             return
         }
         if isValidEmail(testStr: email) == false {
-            self.showAlert(title: "Register Filed", message: "email not correct")
+            let messages = NSLocalizedString("email not correct", comment: "hhhh")
+            let title = NSLocalizedString("Register Filed", comment: "hhhh")
+            self.showAlert(title: title, message: messages)
         }
         
         guard let password = password.text?.trimmed, !password.isEmpty else {
-            self.showAlert(title: "Register Filed", message: "enter password")
+            let messages = NSLocalizedString("enter password", comment: "hhhh")
+            let title = NSLocalizedString("Register Filed", comment: "hhhh")
+            self.showAlert(title: title, message: messages)
             return
         }
         guard let confirmPassword = passwordComfer.text?.trimmed, !confirmPassword.isEmpty else {
-            self.showAlert(title: "Register Filed", message: "enter password confirmation")
+            let messages = NSLocalizedString("enter password confirmation", comment: "hhhh")
+            let title = NSLocalizedString("Register Filed", comment: "hhhh")
+            self.showAlert(title: title, message: messages)
             return
         }
         
          guard password == confirmPassword else {
-            self.showAlert(title: "Register Filed", message: "two password is the same")
+            let messages = NSLocalizedString("two password is not the same", comment: "hhhh")
+            let title = NSLocalizedString("Register Filed", comment: "hhhh")
+            self.showAlert(title: title, message: messages)
             return
         }
         
-        API_Login.register(fristname: frName, lastname: lsName, phone: phone, email: email, password: password) { (error: Error?, success: Bool) in
+        API_Login.register(carModel: carModel, car_year: carYear, fristname: frName, lastname: lsName, phone: phone, email: email, password: password) { (error: Error?, success: Bool) in
             if success {
                 print("success")
             }else {

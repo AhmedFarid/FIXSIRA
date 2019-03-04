@@ -24,12 +24,16 @@ class BuyVC: UIViewController {
     @IBAction func buyBtn(_ sender: Any) {
         
         guard let names = name.text, !names.isEmpty else {
-            self.showAlert(title: "Order Filed", message: "enter your name")
+            let messages = NSLocalizedString("enter your name", comment: "hhhh")
+            let title = NSLocalizedString("Order Filed", comment: "hhhh")
+            self.showAlert(title: title, message: messages)
             return
         }
         
         guard let add1s = add1.text, !add1s.isEmpty else {
-            self.showAlert(title: "Order Filed", message: "enter your adddress")
+            let messages = NSLocalizedString("enter your adddress", comment: "hhhh")
+            let title = NSLocalizedString("Order Filed", comment: "hhhh")
+            self.showAlert(title: title, message: messages)
             return
         }
         
@@ -44,12 +48,16 @@ class BuyVC: UIViewController {
 //        }
         
         guard let phone1s = phone1.text, !phone1s.isEmpty else {
-            self.showAlert(title: "Order Filed", message: "enter your phone")
+            let messages = NSLocalizedString("enter your phone", comment: "hhhh")
+            let title = NSLocalizedString("Order Filed", comment: "hhhh")
+            self.showAlert(title: "Order Filed", message: messages)
             return
         }
         
         guard let email1s = email1.text, !email1s.isEmpty else {
-            self.showAlert(title: "Order Filed", message: "enter your email")
+            let messages = NSLocalizedString("enter your email", comment: "hhhh")
+            let title = NSLocalizedString("Order Filed", comment: "hhhh")
+            self.showAlert(title: title, message: messages)
             return
         }
 
@@ -58,10 +66,22 @@ class BuyVC: UIViewController {
             if success{
                 self.orderId = order_id ?? 0
                 print("0000\(self.orderId)")
-                self.showAlert(title: "Order Success", message: "your order Id is \(self.orderId)")
+                let messages = NSLocalizedString("your order Id is", comment: "hhhh")
+                let title = NSLocalizedString("Order Success", comment: "hhhh")
+                self.showAlert(title: title, message: "\(messages) \(self.orderId)")
             }else{
             }
-            self.showAlert(title: "Order Success", message: "your order Id is \(self.orderId)")
+            let messages = NSLocalizedString("your order Id is", comment: "hhhh")
+            let title = NSLocalizedString("Order Success", comment: "hhhh")
+            self.showAlert(title: title, message: "\(messages) \(self.orderId)")
+        }
+        
+        func getCountCart() {
+            API_Cart.countCart { (error: Error?, Success, count) in
+                print("mmmmm\(count ?? 0)")
+                let Cart = NSLocalizedString("Cart", comment: "Cart")
+                self.tabBarController?.tabBar.items?[2].title = "\(Cart) \((count ?? 0))"
+            }
         }
     }
 }

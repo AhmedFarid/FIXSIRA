@@ -24,7 +24,8 @@ class pullCarCell: UITableViewCell {
         vrndorName.text = prodect.centerName
         name.text = prodect.pullName
         address.text = prodect.centerAddress
-        rateAvg.text = "\(prodect.rating) Rate This"
+        let totalRate = NSLocalizedString("Rate This", comment: "totalPebole reated")
+        rateAvg.text = "\(prodect.rating) \(totalRate)"
         //telephone.text = prodect.telephone
         reate.text = "\(prodect.total)"
         

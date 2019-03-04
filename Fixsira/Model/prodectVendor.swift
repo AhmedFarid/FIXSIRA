@@ -20,11 +20,14 @@ class prodectVendor: UITableViewCell {
     
     func configuerCell(prodect: SparParts) {
         stoke.text = prodect.stock_availability
-        avg.text = "rate This\(prodect.rate_average)"
+        let totalRate = NSLocalizedString("Rate This", comment: "totalPebole reated")
+        avg.text = "\(prodect.rate_average) \(totalRate)"
         rate.text = "\(prodect.rate_total)"
-        desicount.text = "Discount:\(prodect.regular_price)"
+        let Discount = NSLocalizedString("Discount", comment: "Discount")
+        desicount.text = "\(Discount):\(prodect.regular_price)"
         prodactName.text = "\(prodect.title)"
-        price.text = "Price:\(prodect.price)"
+        let Price = NSLocalizedString("Price", comment: "Price")
+        price.text = "\(Price):\(prodect.price)"
         imag.image = UIImage(named: "placeholder")
         let s = ("http://fixsira.com/\(prodect.image_url)")
         let encodedLink = s.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)

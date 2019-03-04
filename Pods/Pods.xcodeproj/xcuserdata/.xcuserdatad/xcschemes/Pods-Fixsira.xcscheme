@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FC26ADEE18AE30E46A461DB761522CA2"
+               BlueprintIdentifier = "4D3F32BD1611FF811CFF4A5C50866065"
                BlueprintName = "Pods-Fixsira"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "Pods-Fixsira.framework">

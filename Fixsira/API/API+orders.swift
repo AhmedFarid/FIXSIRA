@@ -15,7 +15,7 @@ class API_orders: NSObject {
     class func orderService(type_services: String,services_id: String,type_id: String,car_model_id: Int, location_id: String, services_Type: String, lat: Double, long: Double, phone: String, car_name: String, car_model: String, car_model_year: String, date: String, completion: @escaping (_ error: Error?, _ success: Bool, _ orderId: Int?, _ message: String?,_ orderPrice: Int? )->Void) {
         
         let apiToken = "11"
-        let lang = "en"
+        let lang = NSLocalizedString("en", comment: "profuct list lang")
         guard let userToken = helper.getAPIToken() else {
             completion(nil,false,nil,nil,nil)
             return

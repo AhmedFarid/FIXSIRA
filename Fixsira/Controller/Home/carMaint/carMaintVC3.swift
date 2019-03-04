@@ -88,6 +88,11 @@ class carMaintVC3: UIViewController {
     
     
     @IBAction func resevi(_ sender: Any) {
+        guard (helper.getAPIToken() != nil)  else {
+            let message = NSLocalizedString("please login frist", comment: "msg list lang")
+            self.showAlert(title: "Filed", message: message)
+            return
+        }
         self.performSegue(withIdentifier: "suge", sender: "car_maintenance")
     }
     
@@ -132,6 +137,9 @@ class carMaintVC3: UIViewController {
             vendorPeodects.vendorId = singelItems?.vendor_id ?? ""
         }else if let vendorhours = segue.destination as? workhorusVC {
             vendorhours.locationId = singelItems?.vendor_id ?? ""
+        }else if let comments = segue.destination as? comenntsVc {
+            comments.service_id = services_id
+            comments.service_type = "car_maintenance"
         }
     }
 }

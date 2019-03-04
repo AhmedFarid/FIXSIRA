@@ -12,10 +12,10 @@ class serviceTypesVCs: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
 
     var carModels = [servicesType]()
     var servicetype = [servicestypes]()
-    var setlectServices = ["Mobile Service","On Site"]
+    var setlectServices = [NSLocalizedString("Mobile Service", comment: "hhhh"),NSLocalizedString("On Site", comment: "hhhh")]
     
-    var carModelId = 0
-    var serviceTypeId = ""
+    var carModelId: Int?
+    var serviceTypeId: String?
     var seleectServiceType = ""
     
     @IBOutlet weak var carModel: UIPickerView!
@@ -95,12 +95,24 @@ class serviceTypesVCs: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 0 {
-            self.carModelId = carModels[row].id
-            handleRefreshs()
+                self.carModelId = carModels[row].id
+                handleRefreshs()
         }else if pickerView.tag == 1{
-            self.serviceTypeId = servicetype[row].id
+            if servicetype.isEmpty == true {
+                print("no")
+            }else {
+                self.serviceTypeId = servicetype[row].id
+            }
         }else {
-            self.seleectServiceType = setlectServices[row]
+            if setlectServices[row] == "في المركز" {
+                self.seleectServiceType = "On Site"
+            } else if setlectServices[row] == "On Site"{
+                self.seleectServiceType = "On Site"
+            }else {
+                self.seleectServiceType = "Mobile Service"
+            }
+            print("\(self.seleectServiceType)")
+            //self.seleectServiceType = setlectServices[row]
         }
     }
     
@@ -113,8 +125,8 @@ class serviceTypesVCs: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let sevice = segue.destination as? carWishingVC else { return }
-        sevice.carmodelId = carModelId
-        sevice.typeId = serviceTypeId
+        sevice.carmodelId = carModelId ?? 0
+        sevice.typeId = serviceTypeId ?? ""
         sevice.selectServiec = seleectServiceType
         sevice.typeFix = seleectServiceType
     }

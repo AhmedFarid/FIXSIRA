@@ -12,7 +12,7 @@ class serviceTypeVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     
     var carModels = [servicesType]()
     var servicetype = [servicestypes]()
-    var setlectServices = ["Mobile Service","On Site"]
+    var setlectServices = [NSLocalizedString("Mobile Service", comment: "hhhh"),NSLocalizedString("On Site", comment: "hhhh")]
     
     var carModelId = 0
     var serviceTypeId = ""
@@ -95,12 +95,24 @@ class serviceTypeVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 0 {
-            self.carModelId = carModels[row].id
-            handleRefreshs()
+                self.carModelId = carModels[row].id
+                handleRefreshs()
         }else if pickerView.tag == 1{
-            self.serviceTypeId = servicetype[row].id
+            if servicetype.isEmpty == true {
+                print("no")
+            }else {
+                self.serviceTypeId = servicetype[row].id
+            }
         }else {
-            self.seleectServiceType = setlectServices[row]
+           if setlectServices[row] == "في المركز" {
+                self.seleectServiceType = "On Site"
+            } else if setlectServices[row] == "On Site"{
+                self.seleectServiceType = "On Site"
+            }else {
+                self.seleectServiceType = "Mobile Service"
+            }
+            print("\(self.seleectServiceType)")
+            //self.seleectServiceType = setlectServices[row]
         }
     }
     

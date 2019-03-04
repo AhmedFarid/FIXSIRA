@@ -16,7 +16,7 @@ class API_Buy: NSObject {
     class func Buying(order_note: String, name: String, company_name: String, email: String, phone: String, fax: String, adddress: String, city: String, postcode: String, completion: @escaping (_ error: Error?, _ success: Bool, _ orderId: Int?)->Void) {
         
         let apiToken = "11"
-        let lang = "en"
+        let lang = NSLocalizedString("en", comment: "profuct list lang")
         guard let userToken = helper.getAPIToken() else {
             completion(nil,false,nil)
             return

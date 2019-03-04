@@ -29,7 +29,7 @@ class sparePartsVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = singelItem?.name
+//        self.navigationItem.title = singelItem?.name
         
         collection.delegate = self
         collection.dataSource = self

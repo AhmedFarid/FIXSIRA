@@ -103,27 +103,37 @@ class orderServices: UIViewController , CLLocationManagerDelegate{
     @IBAction func orderBtn(_ sender: Any) {
         
         guard let phones = phone.text, !phones.isEmpty else {
-            self.showAlert(title: "Order Filed", message: "enter your phone")
+            let title = NSLocalizedString("Order Filed", comment: "Cart")
+            let message = NSLocalizedString("enter your phone", comment: "Cart")
+            self.showAlert(title: title, message: message)
             return
         }
         
         guard let carNames = carName.text, !carNames.isEmpty else {
-            self.showAlert(title: "Order Filed", message: "enter your car name")
+            let title = NSLocalizedString("Order Filed", comment: "Cart")
+            let message = NSLocalizedString("enter your car name", comment: "Cart")
+            self.showAlert(title: title, message: message)
             return
         }
         
         guard let carModels = carModel.text, !carModels.isEmpty else {
-            self.showAlert(title: "Order Filed", message: "enter your car modle")
+            let title = NSLocalizedString("Order Filed", comment: "Cart")
+            let message = NSLocalizedString("enter your car modle", comment: "Cart")
+            self.showAlert(title: title, message: message)
             return
         }
         
         guard let carModelyears = carModelYear.text, !carModelyears.isEmpty else {
-            self.showAlert(title: "Order Filed", message: "enter your car modle year")
+            let title = NSLocalizedString("Order Filed", comment: "Cart")
+            let message = NSLocalizedString("enter your car modle year", comment: "Cart")
+            self.showAlert(title: title, message: message)
             return
         }
         
         guard let dates = date.text, !dates.isEmpty else {
-            self.showAlert(title: "Order Filed", message: "enter date of services")
+            let title = NSLocalizedString("Order Filed", comment: "Cart")
+            let message = NSLocalizedString("enter date of services", comment: "Cart")
+            self.showAlert(title: title, message: message)
             return
         }
         
@@ -131,7 +141,7 @@ class orderServices: UIViewController , CLLocationManagerDelegate{
             if success {
                 self.orderId = orderId ?? 0
                 print("0000\(self.orderId)")
-                self.showAlert(title: "\(meessage ?? "Order Fail")", message: "your order Id is \(self.orderId)\n Price: \(ordarPrice ?? 0)")
+                self.showAlert(title: "\(meessage ?? "Order success")", message: "your order Id is \(self.orderId)\n Price: \(ordarPrice ?? 0)")
             }else{
                 //self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
                 self.showAlert(title: "Order Fail", message: "Check Network")

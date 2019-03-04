@@ -15,7 +15,7 @@ class API_Services: NSObject {
     class func servicesData(car_model_id: Int,type_id: String ,type: String,type_vist: String, completion: @escaping (_ error: Error?,_ sparParts: [Services]?)-> Void) {
         let url = URLs.locationList
         let api_token = "11"
-        let lang = "en"
+        let lang = NSLocalizedString("en", comment: "profuct list lang")
         
         let parameters: [String: Any] = [
             "api_token": api_token,
@@ -59,7 +59,7 @@ class API_Services: NSObject {
     class func pullCarData(car_model_id: Int,type_id: String ,type: String,type_vist: String, completion: @escaping (_ error: Error?,_ sparParts: [PullCar]?)-> Void) {
         let url = URLs.locationList
         let api_token = "11"
-        let lang = "en"
+        let lang = NSLocalizedString("en", comment: "profuct list lang")
         
         let parameters: [String: Any] = [
             "api_token": api_token,

@@ -29,7 +29,8 @@ class carMaintCell: UITableViewCell {
         //phone.text = "\(prodect.totalPrice)"
         //telephone.text = prodect.centerPhone
         reate.text = "\(prodect.rating)"
-        rateAvg.text = "\(prodect.total) Rate This"
+        let totalRate = NSLocalizedString("Rate This", comment: "totalPebole reated")
+        rateAvg.text = "\(prodect.total) \(totalRate)"
         
         wishImage.image = UIImage(named: "placeholder")
         let s = ("http://fixsira.com/\(prodect.image)")

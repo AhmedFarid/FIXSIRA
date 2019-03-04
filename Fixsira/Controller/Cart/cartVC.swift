@@ -13,6 +13,7 @@ class cartVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var prices: UILabel!
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var viewsss: UIView!
     var carts = [cartData]()
     var singelItem: cartData?
     var price = 0
@@ -27,6 +28,12 @@ class cartVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if helper.getAPIToken() != nil {
+            viewsss.isHidden = true
+        }else {
+            viewsss.isHidden = false
+        }
+        
         
         tableview.dataSource = self
         tableview.delegate = self
@@ -34,14 +41,25 @@ class cartVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         tableview.addSubview(refresher)
         handleRefresh()
+        getCountCart()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         handleRefresh()
+        getCountCart()
         self.tableview.reloadData()
     }
     
     var isLoading: Bool = false
+    
+    
+    @objc func getCountCart() {
+        API_Cart.countCart { (error: Error?, Success, count) in
+            print("mmmmm\(count ?? 0)")
+            let Cart = NSLocalizedString("Cart", comment: "Cart")
+            self.tabBarController?.tabBar.items?[2].title = "\(Cart) \((count ?? 0))"
+        }
+    }
     
     @objc private func handleRefresh() {
         self.refresher.endRefreshing()
@@ -97,15 +115,31 @@ class cartVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                     if success {
                         self.handleRefresh()
                         self.tableview.reloadData()
+                            API_Cart.countCart { (error: Error?, Success, count) in
+                                print("mmmmm\(count ?? 0)")
+                                let Cart = NSLocalizedString("Cart", comment: "Cart")
+                                self.tabBarController?.tabBar.items?[2].title = "\(Cart) \((count ?? 0))"
+                            
+                        }
                         //self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order")
                     }else{
                         //self.showAlert(title: "Add To Cart Success", message: "Go to cart to finsh your order ")
                     }
                     self.handleRefresh()
                     self.tableview.reloadData()
+                    API_Cart.countCart { (error: Error?, Success, count) in
+                        print("mmmmm\(count ?? 0)")
+                        let Cart = NSLocalizedString("Cart", comment: "Cart")
+                        self.tabBarController?.tabBar.items?[2].title = "\(Cart) \((count ?? 0))"
+                    }
                 })
                 self.handleRefresh()
                 self.tableview.reloadData()
+                API_Cart.countCart { (error: Error?, Success, count) in
+                    print("mmmmm\(count ?? 0)")
+                    let Cart = NSLocalizedString("Cart", comment: "Cart")
+                    self.tabBarController?.tabBar.items?[2].title = "\(Cart) \((count ?? 0))"
+                }
             }
             //self.handleRefresh()
             return cell
@@ -117,7 +151,8 @@ class cartVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBAction func buyBtn(_ sender: Any) {
         if price == 0 {
-            self.showAlert(title: "Faild", message: "Cart Is Empty")
+            let cartmsg = NSLocalizedString("Cart Is Empty", comment: "Cart")
+            self.showAlert(title: "Faild", message: cartmsg)
         }else {
             performSegue(withIdentifier: "suge", sender: nil)
         }

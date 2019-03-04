@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
+import FBSDKCoreKit
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+//        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
+//        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.clear], for: UIControl.State.highlighted)
+
+        
+        
+        IQKeyboardManager.shared.enable = true
+        
         if let user_token = helper.getAPIToken(){
             print("user_token\(user_token)")
             //go to main page
@@ -23,7 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = tab
         }
         
-        return true
+        Localizer.DoTheExchange()
+        
+        return FBSDKApplicationDelegate.sharedInstance().application( application, didFinishLaunchingWithOptions : launchOptions)
     }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+    
+    
 }
 

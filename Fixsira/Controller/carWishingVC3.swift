@@ -84,6 +84,11 @@ class carWishingVC3: UIViewController {
     
     
     @IBAction func resevi(_ sender: Any) {
+        guard (helper.getAPIToken() != nil)  else {
+            let message = NSLocalizedString("please login frist", comment: "msg list lang")
+            self.showAlert(title: "Filed", message: message)
+            return
+        }
         self.performSegue(withIdentifier: "suge", sender: "car_washing")
     }
     
@@ -120,13 +125,17 @@ class carWishingVC3: UIViewController {
             orderType.services_id = services_id
         }else if let prodectsVendor = segue.destination as? vendorServices {
             prodectsVendor.vendorId = singelItems?.vendor_id ?? ""
-            prodectsVendor.type = "car_maintenance"
+            prodectsVendor.type = "car_washing"
         }else if let vendorPeodects = segue.destination as? vendorBrodect {
             vendorPeodects.vendorId = singelItems?.vendor_id ?? ""
         }else if let vendorhours = segue.destination as? workhorusVC {
             vendorhours.locationId = singelItems?.vendor_id ?? ""
+        }else if let comments = segue.destination as? comenntsVc {
+            comments.service_id = services_id
+            comments.service_type = "car_washing"
         }
     }
+        
 }
 
 extension carWishingVC3: MKMapViewDelegate {

@@ -34,9 +34,12 @@ class pullCarVC3: UIViewController {
         name.text = singelItem?.name
         des.text = singelItem?.descrip
         price.text = singelItem?.price
-        rate.text = "\(singelItem?.rate ?? 0) : \(singelItem?.averageRate ?? 0) Rate This"
-        centerName.text = "Center Name: \(centerNa)"
-        centerAddress.text = "Center Address: \(centerAdd)"
+        let totalRate = NSLocalizedString("Rate This", comment: "totalPebole reated")
+        rate.text = "\(singelItem?.rate ?? 0) : \(singelItem?.averageRate ?? 0) \(totalRate)"
+        let CenterName = NSLocalizedString("Center Name", comment: "Center Name")
+        centerName.text = "\(CenterName): \(centerNa)"
+        let CenterAddress = NSLocalizedString("Center Address", comment: "Center Address")
+        centerAddress.text = "\(CenterAddress): \(centerAdd)"
         
         image.image = UIImage(named: "placeholder")
         let s = ("http://fixsira.com/\(singelItem?.img ?? "")")
@@ -53,14 +56,23 @@ class pullCarVC3: UIViewController {
     
     
     @IBAction func resevi(_ sender: Any) {
+        guard (helper.getAPIToken() != nil)  else {
+            let message = NSLocalizedString("please login frist", comment: "msg list lang")
+            self.showAlert(title: "Filed", message: message)
+            return
+        }
         self.performSegue(withIdentifier: "suge", sender: "pull_washing")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let orderType = segue.destination as? orderServices else { return }
+       if let orderType = segue.destination as? orderServices  {
         orderType.type = sender as! String
         orderType.locationId = center_Id
         orderType.services_id = singelItem?.serviceId ?? ""
+       }else if let commennts = segue.destination as? comenntsVc {
+        commennts.service_id = center_Id
+        commennts.service_type = "pull_washing"
+            }
     }
     
     @IBAction func call(_ sender: Any) {

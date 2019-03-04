@@ -25,12 +25,15 @@ class sparPartsCell: UICollectionViewCell {
     
     
     func configuerCell(prodect: SparParts) {
-        totalrate.text = "\(prodect.rate_total)"
+        let totalRate = NSLocalizedString("Rate This", comment: "totalPebole reated")
+        totalrate.text = "\(prodect.rate_average) \(totalRate)"
         rate.text = "\(prodect.rate_total)"
         instoke.text = prodect.stock_availability
         prodectName.text = prodect.title
-        Discount.text = "Discount: \(prodect.sale_price)"
-        price.text = "Price: \(prodect.regular_price)"
+        let discount = NSLocalizedString("Discount", comment: "discount")
+        Discount.text = "\(discount): \(prodect.sale_price)"
+        let Price = NSLocalizedString("Price", comment: "Price")
+        price.text = "\(Price): \(prodect.regular_price)"
         prodectImage.image = UIImage(named: "placeholder")
         //self.prodectImage.image = placeholde
 //        Alamofire.request("http://fixsira.com/site"+prodect.image_url).response { response in

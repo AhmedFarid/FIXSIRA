@@ -15,7 +15,7 @@ class API_Cart: NSObject {
     class func addToCart(quanti: Int, vendor_id: String ,products_id: String, completion: @escaping (_ error: Error?, _ success: Bool)->Void) {
         
         let apiToken = "11"
-        let lang = "en"
+        let lang = NSLocalizedString("en", comment: "profuct list lang")
         guard let userToken = helper.getAPIToken() else {
             completion(nil,false)
             return
@@ -50,7 +50,7 @@ class API_Cart: NSObject {
     class func deleteFromCart(products_id: String, completion: @escaping (_ error: Error?, _ success: Bool)->Void) {
         
         let apiToken = "11"
-        let lang = "en"
+        let lang = NSLocalizedString("en", comment: "profuct list lang")
         let quantity = "1"
         guard let userToken = helper.getAPIToken() else {
             completion(nil,false)
@@ -84,7 +84,7 @@ class API_Cart: NSObject {
     class func showcart(completion: @escaping (_ error: Error?,_ sparParts: [cartData]?, _ priceVA: Int?)-> Void) {
         let url = URLs.showCart
         let api_token = "11"
-        let lang = "en"
+        let lang = NSLocalizedString("en", comment: "profuct list lang")
         guard let userToken = helper.getAPIToken() else {
             completion(nil,nil, nil)
             return
@@ -131,7 +131,7 @@ class API_Cart: NSObject {
         
         let url = URLs.showCart
         let api_token = "11"
-        let lang = "en"
+        let lang = NSLocalizedString("en", comment: "profuct list lang")
         guard let userToken = helper.getAPIToken() else {
             completion(nil,nil)
             return
@@ -170,6 +170,43 @@ class API_Cart: NSObject {
                         }
                     }
                 }
+        }
+    }
+    
+    class func countCart(completion: @escaping (_ error: Error?, _ success: Bool, _ count: Int?)->Void) {
+        
+        let apiToken = "11"
+        let lang = NSLocalizedString("en", comment: "profuct list lang")
+        guard let userToken = helper.getAPIToken() else {
+            completion(nil,false,nil)
+            return
+        }
+        
+        let url = URLs.counterCart
+        let parameters = [
+            "api_token": apiToken,
+            "lang": lang,
+            "user_token": userToken,
+            ] as [String : Any]
+        print(parameters)
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil) .responseJSON { response in
+            switch response.result
+            {
+            case .failure(let error):
+                completion(error, false, nil)
+                print(error)
+                //self.showAlert(title: "Error", message: "\(error)")
+                
+            case .success(let value):
+                let json = JSON(value)
+                print(json)
+                
+                if let count = json["data"]["count_cart"].int {
+                    print("orderId\(count)")
+                        completion(nil, true,count)
+                }
+                
+            }
         }
     }
 }

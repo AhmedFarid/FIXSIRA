@@ -12,5 +12,9 @@ target 'Fixsira' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'Kingfisher'
+  pod 'IQKeyboardManagerSwift'
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKCoreKit'
+     
 
 end

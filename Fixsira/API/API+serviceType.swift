@@ -15,15 +15,15 @@ class API_serviceType: NSObject {
     class func carModle(completion: @escaping (_ error: Error?,_ sparParts: [servicesType]?)-> Void) {
         let url = URLs.carModelList
         let api_token = "11"
-        let lang = "en"
-        guard let userToken = helper.getAPIToken() else {
-            completion(nil,nil)
-            return
-        }
+        let lang = NSLocalizedString("en", comment: "profuct list lang")
+//        guard let userToken = helper.getAPIToken() else {
+//            completion(nil,nil)
+//            return
+//        }
         let parameters: [String: Any] = [
             "api_token": api_token,
-            "lang": lang,
-            "user_token": userToken
+            "lang": lang
+            //"user_token": userToken
         ]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil) .responseJSON  { response in
             

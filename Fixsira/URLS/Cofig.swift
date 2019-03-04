@@ -10,7 +10,9 @@ import Foundation
 
 struct URLs {
     
-    static let main = "http://www.emarketingbakers.com/api/"
+    static let main = "https://fixsira.com/api/"
+    
+    static let signupMobileFacebook = main + "signupMobileFacebook"
     
     static let banner = main + "banner"
     
@@ -55,4 +57,16 @@ struct URLs {
     static let getVendorProfile = main + "getVendorProfile"
     
     static let getDays = main + "getDays"
+    
+    static let changPassword = main + "changPassword"
+    
+    static let offersProduct = main + "offersProduct"
+    
+    static let counterCart = main + "counterCart"
+    
+    static let updateProfile = main + "updateProfile"
+    
+    static let commentProduct = main + "commentProduct"
+    
+    static let commentServices = main + "commentServices"
 }

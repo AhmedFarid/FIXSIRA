@@ -12,10 +12,11 @@ import SwiftyJSON
 
 
 class API: NSObject {
+    
     class func productsList(vendor_Id: String,cat_id: String ,srch_term: String, page: Int = 1, completion: @escaping (_ error: Error?,_ sparParts: [SparParts]?, _ last_page: Int)-> Void) {
         let url = URLs.productsList
         let api_token = "11"
-        let lang = "en"
+        let lang = NSLocalizedString("en", comment: "profuct list lang")
         let parameters: [String: Any] = [
             "api_token": api_token,
             "lang": lang,
@@ -53,11 +54,53 @@ class API: NSObject {
             }
         }
     }
+    
+    
+    class func offersProducts(completion: @escaping (_ error: Error?,_ sparParts: [SparParts]?)-> Void) {
+        
+        let url = URLs.offersProduct
+        let api_token = "11"
+        let lang = NSLocalizedString("en", comment: "profuct list lang")
+        let parameters: [String: Any] = [
+            "api_token": api_token,
+            "lang": lang
+        ]
+        
+        print(parameters)
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil) .responseJSON  { response in
+            
+            switch response.result
+            {
+            case .failure(let error):
+                completion(error, nil)
+                print(error)
+                
+            case .success(let value):
+                //print(value)
+                let json = JSON(value)
+                guard let dataArray = json["data"]["products"]["data"].array else{
+                    completion(nil, nil)
+                    return
+                }
+                
+                print(dataArray)
+                var products = [SparParts]()
+                for data in dataArray {
+                    if let data = data.dictionary, let prodect = SparParts.init(dict: data){
+                        products.append(prodect)
+                    }
+                }
+                completion(nil, products)
+                
+            }
+        }
+    }
         class func productsListGalry(product_id: String, completion: @escaping (_ error: Error?,_ sparParts: [SparPartGalrys]?)-> Void) {
             let url = URLs.productImages
             let api_token = "11"
             let user_token = "1111"
-            let lang = "en"
+            let lang = NSLocalizedString("en", comment: "profuct list lang")
             let parameters: [String: Any] = [
                 "api_token": api_token,
                 "lang": lang,

@@ -26,7 +26,8 @@ class carWishingCell: UITableViewCell {
         name.text = prodect.vendorName
         address.text = prodect.centerAddress
         //phone.text = "\(prodect.totalPrice)"
-        telephone.text = "\(prodect.total) Rate This"
+        let totalRate = NSLocalizedString("Rate This", comment: "totalPebole reated")
+        telephone.text = "\(prodect.total) \(totalRate)"
         reate.text = "\(prodect.rating)"
         
         wishImage.image = UIImage(named: "placeholder")
